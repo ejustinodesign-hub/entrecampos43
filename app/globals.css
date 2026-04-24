@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-green-900: #1b3025;
+  --color-green-800: #243d30;
+  --color-green-700: #2e4d3c;
+  --color-gold: #dbba8a;
+  --color-gold-light: #e8ceab;
+  --color-gold-dark: #c9a472;
+  --color-cream: #f7f3ee;
+  --color-cream-dark: #ede8e0;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f3ee;
+  color: #1b3025;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f7f3ee; }
+::-webkit-scrollbar-thumb { background: #dbba8a; border-radius: 99px; }
+
+/* Day/Night hero animation */
+.hero-night {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-night.active { opacity: 1; }
+
+/* Reveal animations */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes revealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal-up   { opacity: 0; }
+.reveal-fade { opacity: 0; }
+.revealed.reveal-up   { animation: revealUp   0.9s ease forwards; }
+.revealed.reveal-fade { animation: revealFade 0.8s ease forwards; }
+
+/* Gold underline on hover */
+.gold-link {
+  position: relative;
+  display: inline-block;
+}
+.gold-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: #dbba8a;
+  transition: width 0.3s ease;
+}
+.gold-link:hover::after { width: 100%; }
+
+/* Modal backdrop */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(27, 48, 37, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
 }
