@@ -1,33 +1,55 @@
 "use client";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function Hero() {
+  const nightRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!sectionRef.current || !nightRef.current) return;
+      const h = sectionRef.current.offsetHeight;
+      // progress: 0 at top → 1 when scrolled 80% of hero height
+      const progress = Math.min(Math.max(window.scrollY / (h * 0.8), 0), 1);
+      nightRef.current.style.opacity = String(progress);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden">
-      {/* Video background — Higgsfield day-to-night animation */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        poster="/images/exterior/fachada-dia.png"
+    <section ref={sectionRef} className="relative h-screen min-h-[600px] overflow-hidden">
+      {/* Fachada Dia — base */}
+      <Image
+        src="/images/exterior/fachada-dia.png"
+        alt="Entrecampos 43 — Dia"
+        fill
+        className="object-cover object-center"
+        priority
+        quality={90}
+      />
+
+      {/* Fachada Noite — faz fade-in ao fazer scroll */}
+      <div
+        ref={nightRef}
+        className="absolute inset-0"
+        style={{ opacity: 0, willChange: "opacity" }}
       >
-        <source src="/images/exterior/fachada-animation.mp4" type="video/mp4" />
-        {/* Fallback: static day image */}
         <Image
-          src="/images/exterior/fachada-dia.png"
-          alt="Entrecampos 43"
+          src="/images/exterior/fachada-noite.png"
+          alt="Entrecampos 43 — Noite"
           fill
           className="object-cover object-center"
-          priority
+          quality={90}
         />
-      </video>
+      </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1b3025]/50 via-transparent to-[#1b3025]/75" />
+      {/* Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1b3025]/45 via-transparent to-[#1b3025]/80" />
 
-      {/* Content */}
+      {/* Conteúdo centrado */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
         <p
           className="text-[#dbba8a] text-xs tracking-[0.4em] uppercase mb-6"
@@ -70,10 +92,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/50">
-        <span className="text-xs tracking-[0.3em] uppercase">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-white/50 to-transparent animate-bounce" />
+      {/* Scroll hint */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
+        <span className="text-[10px] tracking-[0.35em] uppercase">Scroll</span>
+        <div className="w-px h-10 bg-gradient-to-b from-white/50 to-transparent" />
       </div>
     </section>
   );

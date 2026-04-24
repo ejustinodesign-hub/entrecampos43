@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Car, Leaf } from "lucide-react";
 
 type Fracao = {
   id: string;
@@ -115,8 +116,8 @@ export default function Plantas() {
                 <p className="text-xs text-[#1b3025]/50 mb-2">Piso {f.piso} · {f.area}</p>
                 <p className="text-sm font-semibold text-[#1b3025]">{f.preco}</p>
                 <div className="flex gap-2 mt-2">
-                  {f.parking && <span className="text-xs text-[#dbba8a]">🚗 Estac.</span>}
-                  {f.varanda && <span className="text-xs text-[#dbba8a]">🌿 Varanda</span>}
+                  {f.parking && <span className="flex items-center gap-1 text-xs text-[#dbba8a]"><Car size={12} strokeWidth={1.5} /> Estac.</span>}
+                  {f.varanda && <span className="flex items-center gap-1 text-xs text-[#dbba8a]"><Leaf size={12} strokeWidth={1.5} /> Varanda</span>}
                 </div>
               </div>
             </button>

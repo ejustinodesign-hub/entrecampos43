@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Contacto() {
   const ref = useRef<HTMLDivElement>(null);
@@ -74,18 +75,18 @@ export default function Contacto() {
                 href="tel:938249077"
                 className="flex items-center gap-3 text-white/70 hover:text-[#dbba8a] transition-colors text-sm"
               >
-                <span className="text-[#dbba8a]">📞</span>
+                <Phone size={14} className="text-[#dbba8a] shrink-0" strokeWidth={1.5} />
                 938 249 077
               </a>
               <a
                 href="mailto:flsilva@remax.pt"
                 className="flex items-center gap-3 text-white/70 hover:text-[#dbba8a] transition-colors text-sm"
               >
-                <span className="text-[#dbba8a]">✉️</span>
+                <Mail size={14} className="text-[#dbba8a] shrink-0" strokeWidth={1.5} />
                 flsilva@remax.pt
               </a>
               <div className="flex items-start gap-3 text-white/70 text-sm">
-                <span className="text-[#dbba8a] mt-0.5">📍</span>
+                <MapPin size={14} className="text-[#dbba8a] shrink-0 mt-0.5" strokeWidth={1.5} />
                 Rua de Entrecampos nº 43 e 43B, Lisboa
               </div>
             </div>
