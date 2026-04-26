@@ -82,7 +82,7 @@ export default function Localizacao() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.0!2d-9.1497!3d38.7417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a6e3d4c3c7%3A0x0!2sRua+de+Entrecampos+43%2C+Lisboa!5e0!3m2!1spt!2spt!4v1700000000000!5m2!1spt!2spt&style=feature:all|element:labels.text.fill|color:0xdbba8a&iwloc=B"
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: "grayscale(100%) invert(8%) sepia(20%) saturate(500%) hue-rotate(100deg) brightness(90%) contrast(90%)" }}
+                style={{ border: 0, filter: "grayscale(100%) contrast(110%) brightness(95%)" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
