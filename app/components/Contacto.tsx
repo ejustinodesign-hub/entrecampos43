@@ -26,15 +26,14 @@ export default function Contacto() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Build mailto link
-    const subject = encodeURIComponent(`Interesse Entrecampos 43 ${form.fracao ? `- Fração ${form.fracao}` : ""}`);
-    const body = encodeURIComponent(
-      `Nome: ${form.nome}\nEmail: ${form.email}\nTelefone: ${form.telefone}\n${form.fracao ? `Fração: ${form.fracao}\n` : ""}Mensagem:\n${form.mensagem}`
-    );
-    window.open(`mailto:flsilva@remax.pt?subject=${subject}&body=${body}`);
-    setSent(true);
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    if (res.ok) setSent(true);
   };
 
   const inputClass =
