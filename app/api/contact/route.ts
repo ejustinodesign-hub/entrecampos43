@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const { nome, email, telefone, fracao, mensagem } = await req.json();
 
   const { error } = await resend.emails.send({
-    from: "Entrecampos 43 <onboarding@resend.dev>",
+    from: "Entrecampos 43 <noreply@entrecampos43.pt>",
     to: "flsilva@remax.pt",
     replyTo: email,
     subject: `Interesse Entrecampos 43${fracao ? ` — Fração ${fracao}` : ""}`,
