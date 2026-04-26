@@ -61,7 +61,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/30 text-xs">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/30 text-xs mb-4">
           <p>© 2025 Entrecampos 43 · Rua de Entrecampos nº 43, Lisboa</p>
           <p>
             Mediação:{" "}
@@ -70,6 +70,9 @@ export default function Footer() {
             </a>
           </p>
         </div>
+        <p className="text-center text-white/20 text-[10px] tracking-wide">
+          Wonderfulsix - Mediação Imobiliária, Lda | AMI 22525 | Cada agência é de propriedade e gestão independente
+        </p>
       </div>
     </footer>
   );
