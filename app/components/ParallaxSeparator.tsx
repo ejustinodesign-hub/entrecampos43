@@ -20,8 +20,9 @@ export default function ParallaxSeparator() {
     <div className="relative h-64 md:h-80 overflow-hidden">
       <div
         ref={bgRef}
-        className="absolute inset-0 scale-110"
         style={{
+          position: "absolute",
+          inset: "-80px 0",
           backgroundImage: "url('/images/location/calcada.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
