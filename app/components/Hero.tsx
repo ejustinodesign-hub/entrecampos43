@@ -68,7 +68,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="text-white/70 text-lg md:text-xl font-light max-w-xl mx-auto mt-6 mb-10"
+            className="text-white/70 text-lg md:text-xl font-light max-w-xl mx-auto mt-6 mb-10 not-italic"
             style={{ animation: "revealUp 1.1s ease 0.7s forwards", opacity: 0 }}
           >
             Mais que um lugar para morar
