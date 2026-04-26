@@ -114,7 +114,7 @@ export default function Plantas() {
               onClick={() => setSelectedIdx(i)}
               className="reveal-up group text-left bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="relative bg-[#f7f3ee] flex items-center justify-center" style={{ height: 280 }}>
+              <div className="relative bg-white flex items-center justify-center" style={{ height: 280 }}>
                 <Image
                   src={t.img}
                   alt={t.label}
@@ -173,7 +173,7 @@ export default function Plantas() {
             </div>
 
             {/* Image + arrows */}
-            <div className="relative bg-[#f7f3ee] flex items-center justify-center">
+            <div className="relative bg-white flex items-center justify-center">
               <Image
                 src={selected.img}
                 alt={selected.label}
