@@ -63,27 +63,23 @@ export default function Galeria() {
           <div className="w-12 h-px bg-[#dbba8a] mx-auto mt-6 reveal-fade" />
         </div>
 
-        {/* Masonry-style grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {/* Masonry via CSS columns — sem espaços em branco */}
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
           {images.map((img, i) => (
             <button
               key={i}
               onClick={() => setLightbox(i)}
-              className={`reveal-up group relative overflow-hidden bg-[#ede8e0] ${
-                i === 0 || i === 5 ? "md:col-span-2 row-span-2" : ""
-              }`}
-              style={{ aspectRatio: i === 0 || i === 5 ? "1/1" : "4/3" }}
+              className="reveal-up group relative w-full overflow-hidden bg-[#ede8e0] break-inside-avoid block"
             >
               <Image
                 src={img.src}
                 alt={img.alt}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110 block"
               />
               <div className="absolute inset-0 bg-[#1b3025]/0 group-hover:bg-[#1b3025]/30 transition-colors duration-300 flex items-center justify-center">
-                <span className="text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  +
-                </span>
+                <span className="text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">+</span>
               </div>
             </button>
           ))}
