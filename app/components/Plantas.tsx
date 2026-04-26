@@ -1,39 +1,65 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Car, Leaf } from "lucide-react";
+import { Car, Leaf, X } from "lucide-react";
 
-type Fracao = {
+type Tipo = {
   id: string;
+  label: string;
   tipo: string;
-  piso: string;
+  fracoes: string;
   area: string;
-  preco: string;
   parking: boolean;
   varanda: boolean;
   img: string;
 };
 
-const fracoes: Fracao[] = [
-  { id: "A", tipo: "T0", piso: "0", area: "39,61 m²", preco: "450.000 €", parking: false, varanda: false, img: "/images/plantas/Fracao_A.jpg" },
-  { id: "B", tipo: "T1", piso: "1", area: "54,12 m²", preco: "530.000 €", parking: true,  varanda: false, img: "/images/plantas/Fracao_B.jpg" },
-  { id: "C", tipo: "T1", piso: "1", area: "56,71 m²", preco: "550.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_C.jpg" },
-  { id: "D", tipo: "T1", piso: "1", area: "65,39 m²", preco: "575.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_D.jpg" },
-  { id: "E", tipo: "T1", piso: "2", area: "54,12 m²", preco: "535.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_E.jpg" },
-  { id: "F", tipo: "T1", piso: "2", area: "56,71 m²", preco: "555.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_F.jpg" },
-  { id: "G", tipo: "T1", piso: "2", area: "65,39 m²", preco: "580.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_G.jpg" },
-  { id: "H", tipo: "T1", piso: "3", area: "54,12 m²", preco: "540.000 €", parking: true,  varanda: false, img: "/images/plantas/Fracao_H.jpg" },
-  { id: "I", tipo: "T1", piso: "3", area: "56,71 m²", preco: "560.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_I.jpg" },
-  { id: "J", tipo: "T1", piso: "3", area: "65,39 m²", preco: "585.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_J.jpg" },
-  { id: "K", tipo: "T1", piso: "4", area: "54,12 m²", preco: "545.000 €", parking: true,  varanda: false, img: "/images/plantas/Fracao_K.jpg" },
-  { id: "L", tipo: "T1", piso: "4", area: "56,71 m²", preco: "565.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_L.jpg" },
-  { id: "M", tipo: "T1", piso: "4", area: "65,39 m²", preco: "590.000 €", parking: true,  varanda: true,  img: "/images/plantas/Fracao_M.jpg" },
+const tipos: Tipo[] = [
+  {
+    id: "A",
+    label: "Tipo T0",
+    tipo: "T0",
+    fracoes: "Fração A",
+    area: "39,61 m²",
+    parking: false,
+    varanda: false,
+    img: "/images/plantas/Tipo_A.png",
+  },
+  {
+    id: "B",
+    label: "Tipo T1 · A",
+    tipo: "T1",
+    fracoes: "Frações B · E · H · K",
+    area: "54–65 m²",
+    parking: true,
+    varanda: false,
+    img: "/images/plantas/Tipo_B.png",
+  },
+  {
+    id: "C",
+    label: "Tipo T1 · B",
+    tipo: "T1",
+    fracoes: "Frações C · F · I · L",
+    area: "56–73 m²",
+    parking: true,
+    varanda: true,
+    img: "/images/plantas/Tipo_C.png",
+  },
+  {
+    id: "D",
+    label: "Tipo T1 · C",
+    tipo: "T1",
+    fracoes: "Frações D · G · J · M",
+    area: "65–80 m²",
+    parking: true,
+    varanda: true,
+    img: "/images/plantas/Tipo_D.png",
+  },
 ];
 
 export default function Plantas() {
   const ref = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState<Fracao | null>(null);
-  const [filter, setFilter] = useState<"all" | "T0" | "T1">("all");
+  const [selected, setSelected] = useState<Tipo | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,7 +67,7 @@ export default function Plantas() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.querySelectorAll(".reveal-up, .reveal-fade").forEach((el, i) => {
-              setTimeout(() => el.classList.add("revealed"), i * 60);
+              setTimeout(() => el.classList.add("revealed"), i * 100);
             });
             observer.unobserve(e.target);
           }
@@ -53,71 +79,58 @@ export default function Plantas() {
     return () => observer.disconnect();
   }, []);
 
-  // Close modal on Escape
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setSelected(null); };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  const filtered = fracoes.filter((f) => filter === "all" || f.tipo === filter);
-
   return (
     <section id="plantas" ref={ref} className="py-28 px-6 bg-[#ede8e0]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <p className="reveal-fade text-[#dbba8a] text-xs tracking-[0.4em] uppercase mb-4">
             Plantas dos Apartamentos
           </p>
           <h2 className="reveal-up font-serif text-4xl md:text-5xl text-[#1b3025] font-light">
-            Escolhe a tua Fração
+            4 Tipologias Distintas
           </h2>
-          <div className="w-12 h-px bg-[#dbba8a] mx-auto mt-6 mb-10 reveal-fade" />
-
-          {/* Filter */}
-          <div className="reveal-up flex justify-center gap-2">
-            {(["all", "T0", "T1"] as const).map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-6 py-2.5 text-xs tracking-widest uppercase border transition-colors duration-200 ${
-                  filter === f
-                    ? "bg-[#1b3025] border-[#1b3025] text-[#dbba8a]"
-                    : "border-[#1b3025]/30 text-[#1b3025]/60 hover:border-[#1b3025]"
-                }`}
-              >
-                {f === "all" ? "Todas" : f}
-              </button>
-            ))}
-          </div>
+          <div className="w-12 h-px bg-[#dbba8a] mx-auto mt-6 reveal-fade" />
         </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {filtered.map((f) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {tipos.map((t) => (
             <button
-              key={f.id}
-              onClick={() => setSelected(f)}
-              className="reveal-up group text-left bg-white overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              key={t.id}
+              onClick={() => setSelected(t)}
+              className="reveal-up group text-left bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="relative h-56 overflow-hidden bg-[#f7f3ee]">
+              <div className="relative bg-[#f7f3ee] flex items-center justify-center" style={{ height: 280 }}>
                 <Image
-                  src={f.img}
-                  alt={`Fração ${f.id}`}
+                  src={t.img}
+                  alt={t.label}
                   fill
-                  className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-4 border-t border-[#1b3025]/10">
-                <div className="flex justify-between items-center mb-1">
-                  <span className="font-serif text-[#1b3025] text-lg">Fração {f.id}</span>
-                  <span className="text-xs bg-[#1b3025]/10 text-[#1b3025] px-2 py-0.5">{f.tipo}</span>
+              <div className="p-5 border-t border-[#1b3025]/10">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-serif text-[#1b3025] text-lg">{t.label}</span>
+                  <span className="text-xs bg-[#1b3025]/10 text-[#1b3025] px-2 py-0.5">{t.tipo}</span>
                 </div>
-                <p className="text-xs text-[#1b3025]/50 mb-2">Piso {f.piso} · {f.area}</p>
-                <p className="text-sm font-semibold text-[#1b3025]">{f.preco}</p>
-                <div className="flex gap-2 mt-2">
-                  {f.parking && <span className="flex items-center gap-1 text-xs text-[#dbba8a]"><Car size={12} strokeWidth={1.5} /> Estac.</span>}
-                  {f.varanda && <span className="flex items-center gap-1 text-xs text-[#dbba8a]"><Leaf size={12} strokeWidth={1.5} /> Varanda</span>}
+                <p className="text-xs text-[#1b3025]/50 mb-3">{t.fracoes}</p>
+                <p className="text-sm font-medium text-[#1b3025]">{t.area}</p>
+                <div className="flex gap-3 mt-2">
+                  {t.parking && (
+                    <span className="flex items-center gap-1 text-xs text-[#dbba8a]">
+                      <Car size={12} strokeWidth={1.5} /> Estac.
+                    </span>
+                  )}
+                  {t.varanda && (
+                    <span className="flex items-center gap-1 text-xs text-[#dbba8a]">
+                      <Leaf size={12} strokeWidth={1.5} /> Varanda
+                    </span>
+                  )}
                 </div>
               </div>
             </button>
@@ -132,49 +145,46 @@ export default function Plantas() {
             className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal header */}
             <div className="flex items-center justify-between p-5 bg-[#1b3025]">
               <div>
-                <h3 className="font-serif text-white text-2xl">Fração {selected.id}</h3>
-                <p className="text-[#dbba8a] text-sm">{selected.tipo} · Piso {selected.piso}</p>
+                <h3 className="font-serif text-white text-2xl">{selected.label}</h3>
+                <p className="text-[#dbba8a] text-sm">{selected.fracoes}</p>
               </div>
               <button
                 onClick={() => setSelected(null)}
-                className="text-white/60 hover:text-white transition-colors text-2xl leading-none"
+                className="text-white/60 hover:text-white transition-colors"
                 aria-label="Fechar"
               >
-                ✕
+                <X size={22} strokeWidth={1.5} />
               </button>
             </div>
 
-            {/* Plant image */}
-            <div className="relative bg-[#f7f3ee]" style={{ minHeight: 400 }}>
+            <div className="bg-[#f7f3ee] flex items-center justify-center p-8">
               <Image
                 src={selected.img}
-                alt={`Planta Fração ${selected.id}`}
-                width={700}
-                height={900}
-                className="w-full h-auto"
+                alt={selected.label}
+                width={600}
+                height={700}
+                className="w-full h-auto max-h-[60vh] object-contain"
               />
             </div>
 
-            {/* Details */}
             <div className="p-6 grid grid-cols-2 gap-4">
               <div>
-                <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Área Privativa</p>
+                <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Tipologia</p>
+                <p className="font-serif text-[#1b3025] text-xl">{selected.tipo}</p>
+              </div>
+              <div>
+                <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Área</p>
                 <p className="font-serif text-[#1b3025] text-xl">{selected.area}</p>
               </div>
               <div>
-                <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Preço</p>
-                <p className="font-serif text-[#1b3025] text-xl">{selected.preco}</p>
-              </div>
-              <div>
-                <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Piso</p>
-                <p className="text-[#1b3025]">{selected.piso}</p>
+                <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Frações</p>
+                <p className="text-[#1b3025] text-sm">{selected.fracoes}</p>
               </div>
               <div>
                 <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Extras</p>
-                <p className="text-[#1b3025]">
+                <p className="text-[#1b3025] text-sm">
                   {[selected.parking && "Estacionamento", selected.varanda && "Varanda"].filter(Boolean).join(" · ") || "—"}
                 </p>
               </div>
@@ -186,7 +196,7 @@ export default function Plantas() {
                 onClick={() => setSelected(null)}
                 className="block text-center bg-[#1b3025] text-[#dbba8a] py-4 text-sm tracking-widest uppercase hover:bg-[#243d30] transition-colors"
               >
-                Tenho interesse nesta fração
+                Tenho interesse nesta tipologia
               </a>
             </div>
           </div>
