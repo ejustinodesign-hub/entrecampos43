@@ -186,7 +186,7 @@ export default function Tipologias() {
         {/* Hall renders */}
         <div className="reveal-fade grid grid-cols-2 gap-3 mb-16">
           <div
-            className="relative h-48 overflow-hidden cursor-pointer"
+            className="relative h-48 md:h-80 overflow-hidden cursor-pointer"
             onClick={() => setLightbox({ renders: ["/images/interior/LVS 08 hall.jpg"], idx: 0 })}
           >
             <Image src="/images/interior/LVS 08 hall.jpg" alt="Hall" fill className="object-cover hover:scale-105 transition-transform duration-500" />
@@ -194,7 +194,7 @@ export default function Tipologias() {
             <p className="absolute bottom-3 left-4 text-white/80 text-xs tracking-wider">Hall de Entrada</p>
           </div>
           <div
-            className="relative h-48 overflow-hidden cursor-pointer"
+            className="relative h-48 md:h-80 overflow-hidden cursor-pointer"
             onClick={() => setLightbox({ renders: ["/images/interior/LVS 08 hall_1.jpg"], idx: 0 })}
           >
             <Image src="/images/interior/LVS 08 hall_1.jpg" alt="Hall 2" fill className="object-cover hover:scale-105 transition-transform duration-500" />
