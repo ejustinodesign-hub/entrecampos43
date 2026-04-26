@@ -27,7 +27,7 @@ const tipos: Tipo[] = [
   },
   {
     id: "B",
-    label: "Tipo T1 · A",
+    label: "T1 — Tipo A",
     tipo: "T1",
     fracoes: "Frações B · E · H · K",
     area: "54–65 m²",
@@ -37,7 +37,7 @@ const tipos: Tipo[] = [
   },
   {
     id: "C",
-    label: "Tipo T1 · B",
+    label: "T1 — Tipo B",
     tipo: "T1",
     fracoes: "Frações C · F · I · L",
     area: "56–73 m²",
@@ -47,7 +47,7 @@ const tipos: Tipo[] = [
   },
   {
     id: "D",
-    label: "Tipo T1 · C",
+    label: "T1 — Tipo C",
     tipo: "T1",
     fracoes: "Frações D · G · J · M",
     area: "65–80 m²",
