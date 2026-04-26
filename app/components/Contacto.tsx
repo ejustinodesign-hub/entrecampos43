@@ -62,8 +62,8 @@ export default function Contacto() {
           <div className="reveal-up bg-white/5 border border-white/10 p-7 mb-8">
             <p className="text-[#dbba8a] text-xs tracking-widest uppercase mb-5">Mediador Imobiliário</p>
             <div className="flex items-center gap-5">
-              <div className="w-14 h-14 rounded-full bg-[#dbba8a]/20 flex items-center justify-center text-[#dbba8a] text-xl font-serif">
-                FS
+              <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
+                <Image src="/images/team/filipe-silva.jpg" alt="Filipe Silva" width={56} height={56} className="object-cover w-full h-full" />
               </div>
               <div>
                 <p className="text-white font-semibold text-lg">Filipe Silva</p>
