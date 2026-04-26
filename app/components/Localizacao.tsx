@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { Train, GraduationCap, Plane, Hospital, ShoppingBag, MapPin } from "lucide-react";
 
 const highlights = [
@@ -43,6 +42,7 @@ export default function Localizacao() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left: text + highlights */}
           <div>
             <p className="reveal-up text-white/70 text-lg leading-relaxed mb-10">
               A Rua de Entrecampos ocupa uma posição estratégica no mapa de Lisboa,
@@ -74,20 +74,23 @@ export default function Localizacao() {
             </div>
           </div>
 
-          <div className="reveal-fade space-y-4">
-            <div className="relative h-80 lg:h-[420px] overflow-hidden">
-              <Image src="/images/location/mapa.jpg" alt="Localização Entrecampos 43" fill className="object-cover" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex items-center gap-2 bg-[#1b3025]/90 text-white px-4 py-2 text-sm font-medium shadow-xl border border-[#dbba8a]/30">
-                  <MapPin size={14} className="text-[#dbba8a]" />
-                  Entrecampos 43
-                </div>
+          {/* Right: Google Maps */}
+          <div className="reveal-fade">
+            <div className="relative overflow-hidden" style={{ height: 460 }}>
+              <iframe
+                title="Localização Entrecampos 43"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.0!2d-9.1497!3d38.7417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a6e3d4c3c7%3A0x0!2sRua+de+Entrecampos+43%2C+Lisboa!5e0!3m2!1spt!2spt!4v1700000000000!5m2!1spt!2spt&style=feature:all|element:labels.text.fill|color:0xdbba8a&iwloc=B"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "grayscale(100%) invert(8%) sepia(20%) saturate(500%) hue-rotate(100deg) brightness(90%) contrast(90%)" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-[#1b3025]/90 text-white px-4 py-2 text-sm font-medium shadow-xl border border-[#dbba8a]/30">
+                <MapPin size={14} className="text-[#dbba8a]" />
+                Entrecampos 43
               </div>
-            </div>
-            <div className="relative h-40 overflow-hidden">
-              <Image src="/images/location/calcada.jpg" alt="Rua Entrecampos" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1b3025]/70 to-transparent" />
-              <p className="absolute bottom-4 left-4 text-white/70 text-xs tracking-wider">Rua de Entrecampos · Lisboa</p>
             </div>
           </div>
         </div>
