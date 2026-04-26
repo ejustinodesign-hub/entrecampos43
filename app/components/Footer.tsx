@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/10 pb-10 mb-8">
           <Image
-            src="/images/logos/logo-white.svg"
+            src="/images/logos/logo-branco.svg"
             alt="Entrecampos 43"
             width={150}
             height={55}
