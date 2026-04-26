@@ -2,6 +2,10 @@
 import { useEffect, useRef } from "react";
 import { Train, GraduationCap, Plane, Hospital, ShoppingBag, MapPin } from "lucide-react";
 
+declare global {
+  interface Window { google: any; initEntrecamposMap: () => void; }
+}
+
 const highlights = [
   { icon: Train,         label: "Metro & Comboio Entrecampos", dist: "2 min a pé" },
   { icon: GraduationCap, label: "ISCTE / Cidade Universitária",  dist: "5 min" },
@@ -11,8 +15,55 @@ const highlights = [
   { icon: MapPin,        label: "Centro Histórico",              dist: "10 min" },
 ];
 
+const MAP_STYLES = [
+  { elementType: "geometry", stylers: [{ color: "#e8e4dc" }] },
+  { elementType: "labels.text.fill", stylers: [{ color: "#5a4a3a" }] },
+  { elementType: "labels.text.stroke", stylers: [{ color: "#f5f1eb" }] },
+  { featureType: "road", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
+  { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#d6d0c8" }] },
+  { featureType: "water", elementType: "geometry", stylers: [{ color: "#c9d8e0" }] },
+  { featureType: "poi", elementType: "geometry", stylers: [{ color: "#ddd8ce" }] },
+  { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#c8d8b8" }] },
+  { featureType: "transit", elementType: "geometry", stylers: [{ color: "#d8d0c4" }] },
+  { featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: "#c8c0b4" }] },
+];
+
+function loadGoogleMap() {
+  if (window.google?.maps) { window.initEntrecamposMap(); return; }
+  window.initEntrecamposMap = () => {
+    const el = document.getElementById("entrecampos-map");
+    if (!el) return;
+    const pos = { lat: 38.7417, lng: -9.1497 };
+    const map = new window.google.maps.Map(el, {
+      center: pos, zoom: 16,
+      styles: MAP_STYLES,
+      disableDefaultUI: true,
+      zoomControl: true,
+    });
+    new window.google.maps.Marker({
+      position: pos,
+      map,
+      icon: {
+        url: "/images/favicon.png",
+        scaledSize: new window.google.maps.Size(48, 48),
+        anchor: new window.google.maps.Point(24, 48),
+      },
+      title: "Entrecampos 43",
+    });
+  };
+  if (!document.getElementById("gmaps-script")) {
+    const s = document.createElement("script");
+    s.id = "gmaps-script";
+    s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDfcMo4AeTVG1vHVmIJz49dHf7BPCQZYe8&callback=initEntrecamposMap";
+    s.async = true; s.defer = true;
+    document.head.appendChild(s);
+  }
+}
+
 export default function Localizacao() {
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => { loadGoogleMap(); }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -74,36 +125,9 @@ export default function Localizacao() {
             </div>
           </div>
 
-          {/* Right: Google Maps */}
+          {/* Right: Google Maps JS API */}
           <div className="reveal-fade">
-            <div className="relative overflow-hidden" style={{ height: 460 }}>
-              <iframe
-                title="Localização Entrecampos 43"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.0!2d-9.1497!3d38.7417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a6e3d4c3c7%3A0x0!2sRua+de+Entrecampos+43%2C+Lisboa!5e0!3m2!1spt!2spt!4v1700000000000!5m2!1spt!2spt"
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: "grayscale(100%) contrast(110%) brightness(95%)" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-
-              {/* Custom pin overlay */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ marginTop: "-40px" }}>
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#dbba8a] shadow-xl bg-white">
-                    <img src="/images/favicon.png" alt="Entrecampos 43" className="w-full h-full object-cover" />
-                  </div>
-                  <div className="w-0.5 h-4 bg-[#dbba8a]" />
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#dbba8a]" />
-                </div>
-              </div>
-
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-[#1b3025]/90 text-white px-4 py-2 text-sm font-medium shadow-xl border border-[#dbba8a]/30">
-                <MapPin size={14} className="text-[#dbba8a]" />
-                Entrecampos 43
-              </div>
-            </div>
+            <div id="entrecampos-map" className="relative overflow-hidden w-full" style={{ height: 460 }} />
           </div>
         </div>
       </div>
