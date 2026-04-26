@@ -102,7 +102,7 @@ export default function Plantas() {
             Plantas dos Apartamentos
           </p>
           <h2 className="reveal-up font-serif text-4xl md:text-5xl text-[#1b3025] font-light">
-            4 Tipologias Distintas
+            4 Layouts Distintos
           </h2>
           <div className="w-12 h-px bg-[#dbba8a] mx-auto mt-6 reveal-fade" />
         </div>
