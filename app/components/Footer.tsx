@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
           <div className="w-px h-8 bg-white/10" />
           <div className="flex flex-col items-center gap-2">
-            <p className="text-white/20 text-[10px] tracking-widest uppercase">Marketing</p>
+            <p className="text-white/20 text-[10px] tracking-widest uppercase">Mediação</p>
             <Image
               src="/images/logos/vs-brothers.png"
               alt="VS Brothers"
