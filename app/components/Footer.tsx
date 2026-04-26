@@ -24,6 +24,37 @@ export default function Footer() {
             ))}
           </nav>
         </div>
+
+        {/* Partner logos */}
+        <div className="flex flex-wrap items-center justify-center gap-10 border-b border-white/10 pb-10 mb-8">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-white/20 text-[10px] tracking-widest uppercase">Construtora</p>
+            <p className="text-white/40 text-sm tracking-wider">UNNI</p>
+          </div>
+          <div className="w-px h-8 bg-white/10" />
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-white/20 text-[10px] tracking-widest uppercase">Mediação</p>
+            <Image
+              src="/images/logos/place-riverview.png"
+              alt="RE/MAX Place Riverview"
+              width={120}
+              height={40}
+              className="h-8 w-auto opacity-50 hover:opacity-80 transition-opacity"
+            />
+          </div>
+          <div className="w-px h-8 bg-white/10" />
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-white/20 text-[10px] tracking-widest uppercase">Marketing</p>
+            <Image
+              src="/images/logos/vs-brothers.png"
+              alt="VS Brothers"
+              width={120}
+              height={40}
+              className="h-8 w-auto opacity-50 hover:opacity-80 transition-opacity"
+            />
+          </div>
+        </div>
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-white/30 text-xs">
           <p>© 2025 Entrecampos 43 · Rua de Entrecampos nº 43, Lisboa</p>
           <p>
