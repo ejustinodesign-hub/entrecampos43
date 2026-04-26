@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Car, Leaf, X } from "lucide-react";
+import { Car, Leaf, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 type Tipo = {
   id: string;
@@ -59,7 +59,12 @@ const tipos: Tipo[] = [
 
 export default function Plantas() {
   const ref = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState<Tipo | null>(null);
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+
+  const selected = selectedIdx !== null ? tipos[selectedIdx] : null;
+
+  const prev = () => setSelectedIdx((i) => (i !== null ? (i - 1 + tipos.length) % tipos.length : null));
+  const next = () => setSelectedIdx((i) => (i !== null ? (i + 1) % tipos.length : null));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -80,7 +85,11 @@ export default function Plantas() {
   }, []);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setSelected(null); };
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedIdx(null);
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
@@ -99,10 +108,10 @@ export default function Plantas() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {tipos.map((t) => (
+          {tipos.map((t, i) => (
             <button
               key={t.id}
-              onClick={() => setSelected(t)}
+              onClick={() => setSelectedIdx(i)}
               className="reveal-up group text-left bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               <div className="relative bg-[#f7f3ee] flex items-center justify-center" style={{ height: 280 }}>
@@ -139,36 +148,61 @@ export default function Plantas() {
       </div>
 
       {/* Modal */}
-      {selected && (
-        <div className="modal-backdrop" onClick={() => setSelected(null)}>
+      {selected && selectedIdx !== null && (
+        <div className="modal-backdrop" onClick={() => setSelectedIdx(null)}>
           <div
-            className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Header */}
             <div className="flex items-center justify-between p-5 bg-[#1b3025]">
               <div>
                 <h3 className="font-serif text-white text-2xl">{selected.label}</h3>
                 <p className="text-[#dbba8a] text-sm">{selected.fracoes}</p>
               </div>
-              <button
-                onClick={() => setSelected(null)}
-                className="text-white/60 hover:text-white transition-colors"
-                aria-label="Fechar"
-              >
-                <X size={22} strokeWidth={1.5} />
-              </button>
+              <div className="flex items-center gap-3">
+                <span className="text-white/30 text-xs">{selectedIdx + 1} / {tipos.length}</span>
+                <button
+                  onClick={() => setSelectedIdx(null)}
+                  className="text-white/60 hover:text-white transition-colors"
+                  aria-label="Fechar"
+                >
+                  <X size={22} strokeWidth={1.5} />
+                </button>
+              </div>
             </div>
 
-            <div className="bg-[#f7f3ee] flex items-center justify-center p-8">
+            {/* Image + arrows */}
+            <div className="relative bg-[#f7f3ee] flex items-center justify-center">
               <Image
                 src={selected.img}
                 alt={selected.label}
                 width={600}
-                height={700}
-                className="w-full h-auto max-h-[60vh] object-contain"
+                height={800}
+                className="w-full h-auto object-contain"
+                style={{ display: "block" }}
               />
+
+              {/* Prev */}
+              <button
+                onClick={(e) => { e.stopPropagation(); prev(); }}
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#1b3025]/80 hover:bg-[#1b3025] text-white p-2 transition-colors"
+                aria-label="Anterior"
+              >
+                <ChevronLeft size={22} strokeWidth={1.5} />
+              </button>
+
+              {/* Next */}
+              <button
+                onClick={(e) => { e.stopPropagation(); next(); }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#1b3025]/80 hover:bg-[#1b3025] text-white p-2 transition-colors"
+                aria-label="Próxima"
+              >
+                <ChevronRight size={22} strokeWidth={1.5} />
+              </button>
             </div>
 
+            {/* Details */}
             <div className="p-6 grid grid-cols-2 gap-4">
               <div>
                 <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">Tipologia</p>
@@ -193,7 +227,7 @@ export default function Plantas() {
             <div className="px-6 pb-6">
               <a
                 href="#contacto"
-                onClick={() => setSelected(null)}
+                onClick={() => setSelectedIdx(null)}
                 className="block text-center bg-[#1b3025] text-[#dbba8a] py-4 text-sm tracking-widest uppercase hover:bg-[#243d30] transition-colors"
               >
                 Tenho interesse nesta tipologia
