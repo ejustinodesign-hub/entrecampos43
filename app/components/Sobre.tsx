@@ -40,7 +40,7 @@ export default function Sobre() {
           </p>
           <h2 className="reveal-up font-serif text-4xl md:text-5xl text-[#1b3025] font-light leading-tight mb-8">
             Mais que um lugar<br />
-            <em>para morar</em>
+            <span>para morar</span>
           </h2>
           <div className="w-12 h-px bg-[#dbba8a] mb-8 reveal-fade" />
           <p className="reveal-up text-[#1b3025]/70 text-lg leading-relaxed mb-6">
