@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { Car, Leaf } from "lucide-react";
 
 const fracoes = [
   { id: "A", tipo: "T0", piso: 0, abc: 39.61, preco: 450000, parking: false, varanda: false },
@@ -91,8 +92,10 @@ export default function Precos() {
                   <td className="py-4 pr-6 text-white/60">{f.piso}</td>
                   <td className="py-4 pr-6 text-white/80">{f.abc.toFixed(2)}</td>
                   <td className="py-4 pr-6">
-                    <span className="text-white/60 text-xs">
-                      {[f.parking && "🚗", f.varanda && "🌿"].filter(Boolean).join(" ") || "—"}
+                    <span className="flex items-center gap-2 text-white/60">
+                      {f.parking && <Car size={13} strokeWidth={1.5} className="text-[#dbba8a]" />}
+                      {f.varanda && <Leaf size={13} strokeWidth={1.5} className="text-[#dbba8a]" />}
+                      {!f.parking && !f.varanda && "—"}
                     </span>
                   </td>
                   <td className="py-4 font-semibold text-white">
