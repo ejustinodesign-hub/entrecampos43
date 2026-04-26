@@ -38,7 +38,7 @@ export default function Sobre() {
           <p className="reveal-fade text-[#dbba8a] text-xs tracking-[0.4em] uppercase mb-4">
             O Empreendimento
           </p>
-          <h2 className="reveal-up font-serif text-4xl md:text-5xl text-[#1b3025] font-light leading-tight mb-8">
+          <h2 className="reveal-up font-serif text-4xl md:text-5xl text-[#1b3025] leading-tight mb-8">
             Mais que um lugar<br />
             <span>para morar</span>
           </h2>
