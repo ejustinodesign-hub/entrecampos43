@@ -62,8 +62,8 @@ export default function Hero() {
           className="font-serif text-white text-5xl md:text-7xl lg:text-8xl font-light leading-none mb-4"
           style={{ animation: "revealUp 1.1s ease 0.4s forwards", opacity: 0 }}
         >
-          Entrecampos
-          <span className="block text-[#dbba8a]">43</span>
+          O seu T1
+          <span className="block text-[#dbba8a]">em Lisboa</span>
         </h1>
 
         <p
