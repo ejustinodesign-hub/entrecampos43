@@ -35,7 +35,7 @@ export default function Hero() {
 
   return (
     // Tall section — scroll distance drives the video
-    <section ref={sectionRef} className="relative" style={{ height: "300vh" }}>
+    <section ref={sectionRef} className="relative" style={{ height: "200vh" }}>
       {/* Sticky frame that stays fixed while scrolling through */}
       <div className="sticky top-0 h-screen overflow-hidden">
         <video
