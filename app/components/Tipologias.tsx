@@ -22,7 +22,7 @@ const tipologias: Tipologia[] = [
   },
   {
     id: "T1-B",
-    tipo: "T1 · Tipo B",
+    tipo: "T1 — Tipo A",
     descricao: "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
     renders: ["/images/interior/LVS 08 B.jpg", "/images/interior/LVS 08 B_1.jpg", "/images/interior/LVS 08 B_2.jpg", "/images/interior/LVS 08 B_3.jpg"],
     area: "54 – 55 m²",
@@ -30,7 +30,7 @@ const tipologias: Tipologia[] = [
   },
   {
     id: "T1-C",
-    tipo: "T1 · Tipo C",
+    tipo: "T1 — Tipo B",
     descricao: "T1 com varanda e excelente exposição solar. Ambientes generosos e acabamentos de alta qualidade.",
     renders: ["/images/interior/LVS 08 C.jpg", "/images/interior/LVS 08 C_1.jpg", "/images/interior/LVS 08 C_2.jpg", "/images/interior/LVS 08 C_3.jpg"],
     area: "56,71 m²",
@@ -38,7 +38,7 @@ const tipologias: Tipologia[] = [
   },
   {
     id: "T1-D",
-    tipo: "T1 · Tipo D",
+    tipo: "T1 — Tipo C",
     descricao: "O maior T1 do empreendimento. Espaços amplos, varanda e estacionamento incluído. O melhor de Lisboa.",
     renders: ["/images/interior/LVS 08 D.jpg", "/images/interior/LVS 08 D_1.jpg", "/images/interior/LVS 08 D_2.jpg", "/images/interior/LVS 08 D_3.jpg"],
     area: "65,39 m²",
