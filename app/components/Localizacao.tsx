@@ -79,7 +79,7 @@ export default function Localizacao() {
             <div className="relative overflow-hidden" style={{ height: 460 }}>
               <iframe
                 title="Localização Entrecampos 43"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.0!2d-9.1497!3d38.7417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a6e3d4c3c7%3A0x0!2sRua+de+Entrecampos+43%2C+Lisboa!5e0!3m2!1spt!2spt!4v1700000000000!5m2!1spt!2spt&style=feature:all|element:labels.text.fill|color:0xdbba8a&iwloc=B"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.0!2d-9.1497!3d38.7417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a6e3d4c3c7%3A0x0!2sRua+de+Entrecampos+43%2C+Lisboa!5e0!3m2!1spt!2spt!4v1700000000000!5m2!1spt!2spt"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(100%) contrast(110%) brightness(95%)" }}
@@ -87,6 +87,18 @@ export default function Localizacao() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
+
+              {/* Custom pin overlay */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ marginTop: "-40px" }}>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#dbba8a] shadow-xl bg-white">
+                    <img src="/images/favicon.png" alt="Entrecampos 43" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="w-0.5 h-4 bg-[#dbba8a]" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#dbba8a]" />
+                </div>
+              </div>
+
               <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-[#1b3025]/90 text-white px-4 py-2 text-sm font-medium shadow-xl border border-[#dbba8a]/30">
                 <MapPin size={14} className="text-[#dbba8a]" />
                 Entrecampos 43
