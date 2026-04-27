@@ -241,7 +241,7 @@ export const pt: Translations = {
   precos: {
     label: "Tabela de Preços",
     title: "Todas as Frações",
-    headers: ["Fração", "Tipo", "Piso", "Área (m²)", "Extras", "Preço"],
+    headers: ["Fração", "Tipo", "Piso", "Á. Bruta Privativa", "Á. Bruta Construção", "Extras", "Preço"],
     fracao: "Fração",
     steps: [
       { label: "Reserva", value: "5.000 €" },
@@ -419,7 +419,7 @@ export const en: Translations = {
   precos: {
     label: "Price List",
     title: "All Units",
-    headers: ["Unit", "Type", "Floor", "Area (m²)", "Extras", "Price"],
+    headers: ["Unit", "Type", "Floor", "Private Area", "Built Area", "Extras", "Price"],
     fracao: "Unit",
     steps: [
       { label: "Reservation", value: "€5,000" },

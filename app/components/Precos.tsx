@@ -4,19 +4,19 @@ import { Car, Leaf } from "lucide-react";
 import { useLang } from "../context/LangContext";
 
 const fracoes = [
-  { id: "A", tipo: "T0", piso: 0, abc: 39.61, preco: 450000, parking: false, varanda: false },
-  { id: "B", tipo: "T1", piso: 1, abc: 72.29, preco: 530000, parking: true,  varanda: false },
-  { id: "C", tipo: "T1", piso: 1, abc: 62.52, preco: 550000, parking: true,  varanda: true  },
-  { id: "D", tipo: "T1", piso: 1, abc: 79.76, preco: 575000, parking: true,  varanda: true  },
-  { id: "E", tipo: "T1", piso: 2, abc: 65.65, preco: 535000, parking: true,  varanda: true  },
-  { id: "F", tipo: "T1", piso: 2, abc: 73.19, preco: 555000, parking: true,  varanda: true  },
-  { id: "G", tipo: "T1", piso: 2, abc: 79.76, preco: 580000, parking: true,  varanda: true  },
-  { id: "H", tipo: "T1", piso: 3, abc: 64.79, preco: 540000, parking: true,  varanda: false },
-  { id: "I", tipo: "T1", piso: 3, abc: 73.19, preco: 560000, parking: true,  varanda: true  },
-  { id: "J", tipo: "T1", piso: 3, abc: 80.02, preco: 585000, parking: true,  varanda: true  },
-  { id: "K", tipo: "T1", piso: 4, abc: 65.05, preco: 545000, parking: true,  varanda: false },
-  { id: "L", tipo: "T1", piso: 4, abc: 73.52, preco: 565000, parking: true,  varanda: true  },
-  { id: "M", tipo: "T1", piso: 4, abc: 80.09, preco: 590000, parking: true,  varanda: true  },
+  { id: "A", tipo: "T0", piso: 0, abp: 39.61, abc: 39.61, preco: 450000, parking: false, varanda: false },
+  { id: "B", tipo: "T1", piso: 1, abp: 54.12, abc: 72.29, preco: 530000, parking: true,  varanda: false },
+  { id: "C", tipo: "T1", piso: 1, abp: 56.71, abc: 62.52, preco: 550000, parking: true,  varanda: true  },
+  { id: "D", tipo: "T1", piso: 1, abp: 65.39, abc: 79.76, preco: 575000, parking: true,  varanda: true  },
+  { id: "E", tipo: "T1", piso: 2, abp: 54.12, abc: 65.65, preco: 535000, parking: true,  varanda: true  },
+  { id: "F", tipo: "T1", piso: 2, abp: 56.71, abc: 73.19, preco: 555000, parking: true,  varanda: true  },
+  { id: "G", tipo: "T1", piso: 2, abp: 65.39, abc: 79.76, preco: 580000, parking: true,  varanda: true  },
+  { id: "H", tipo: "T1", piso: 3, abp: 54.12, abc: 64.79, preco: 540000, parking: true,  varanda: false },
+  { id: "I", tipo: "T1", piso: 3, abp: 56.71, abc: 73.19, preco: 560000, parking: true,  varanda: true  },
+  { id: "J", tipo: "T1", piso: 3, abp: 65.39, abc: 80.02, preco: 585000, parking: true,  varanda: true  },
+  { id: "K", tipo: "T1", piso: 4, abp: 54.12, abc: 65.05, preco: 545000, parking: true,  varanda: false },
+  { id: "L", tipo: "T1", piso: 4, abp: 56.71, abc: 73.52, preco: 565000, parking: true,  varanda: true  },
+  { id: "M", tipo: "T1", piso: 4, abp: 65.39, abc: 80.09, preco: 590000, parking: true,  varanda: true  },
 ];
 
 export default function Precos() {
@@ -80,7 +80,8 @@ export default function Precos() {
                     <span className="text-[#dbba8a] text-xs font-medium tracking-wider">{f.tipo}</span>
                   </td>
                   <td className="py-4 pr-6 text-white/60">{f.piso}</td>
-                  <td className="py-4 pr-6 text-white/80">{f.abc.toFixed(2)}</td>
+                  <td className="py-4 pr-6 text-white/80">{f.abp.toFixed(2)}</td>
+                  <td className="py-4 pr-6 text-white/50">{f.abc.toFixed(2)}</td>
                   <td className="py-4 pr-6">
                     <span className="flex items-center gap-2 text-white/60">
                       {f.parking && <Car size={13} strokeWidth={1.5} className="text-[#dbba8a]" />}
