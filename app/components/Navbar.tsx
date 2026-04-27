@@ -72,15 +72,23 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button className="lg:hidden text-white p-2" onClick={() => setOpen(!open)} aria-label="Menu">
-          <div className="w-6 flex flex-col gap-1.5">
-            <span className={`h-0.5 bg-current transition-all duration-300 ${open ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`h-0.5 bg-current transition-all duration-300 ${open ? "opacity-0" : ""}`} />
-            <span className={`h-0.5 bg-current transition-all duration-300 ${open ? "-rotate-45 -translate-y-2" : ""}`} />
-          </div>
-        </button>
-      </div>
+        {/* Mobile: lang toggle + hamburger */}
+        <div className="lg:hidden flex items-center gap-2">
+          <button
+            onClick={toggle}
+            className="text-white/60 hover:text-white text-xs tracking-widest uppercase transition-colors border border-white/20 px-2.5 py-1.5"
+            aria-label="Toggle language"
+          >
+            {lang === "pt" ? "EN" : "PT"}
+          </button>
+          <button className="text-white p-2" onClick={() => setOpen(!open)} aria-label="Menu">
+            <div className="w-6 flex flex-col gap-1.5">
+              <span className={`h-0.5 bg-current transition-all duration-300 ${open ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`h-0.5 bg-current transition-all duration-300 ${open ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 bg-current transition-all duration-300 ${open ? "-rotate-45 -translate-y-2" : ""}`} />
+            </div>
+          </button>
+        </div>
 
       {open && (
         <div className="lg:hidden bg-[#1b3025] border-t border-[#dbba8a]/20 px-6 py-6 flex flex-col gap-5">
@@ -94,17 +102,11 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <div className="flex items-center gap-3 mt-2">
-            <button
-              onClick={toggle}
-              className="text-white/60 hover:text-white text-xs tracking-widest uppercase transition-colors border border-white/20 px-3 py-2.5"
-            >
-              {lang === "pt" ? "EN" : "PT"}
-            </button>
+          <div className="mt-2">
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
-              className="flex-1 text-center bg-[#dbba8a] text-[#1b3025] px-5 py-3 text-sm font-semibold tracking-wider uppercase"
+              className="block text-center bg-[#dbba8a] text-[#1b3025] px-5 py-3 text-sm font-semibold tracking-wider uppercase"
             >
               {t.nav.cta}
             </a>
