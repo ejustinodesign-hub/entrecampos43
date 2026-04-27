@@ -98,7 +98,7 @@ export default function Localizacao() {
                 const Icon = icons[i];
                 return (
                   <div
-                    key={h.label}
+                    key={i}
                     className="reveal-up flex items-start gap-4 bg-white/5 border border-white/10 p-5 hover:border-[#dbba8a]/40 transition-colors duration-300"
                   >
                     <Icon size={20} className="text-[#dbba8a] shrink-0 mt-0.5" strokeWidth={1.5} />
