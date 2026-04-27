@@ -1,15 +1,22 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useLang } from "../context/LangContext";
 
 const stats = [
-  { value: "13", label: "Frações" },
-  { value: "T0/T1", label: "Tipologias" },
-  { value: "5", label: "Pisos" },
-  { value: "Set. 2026", label: "Conclusão" },
+  { value: "13", labelKey: "fracoes" as const },
+  { value: "T0/T1", labelKey: "tipologias" as const },
+  { value: "5", labelKey: "pisos" as const },
+  { value: "Set. 2026", labelKey: "conclusao" as const },
 ];
 
+const statsLabels = {
+  pt: { fracoes: "Frações", tipologias: "Tipologias", pisos: "Pisos", conclusao: "Conclusão" },
+  en: { fracoes: "Units", tipologias: "Typologies", pisos: "Floors", conclusao: "Completion" },
+};
+
 export default function Sobre() {
+  const { lang, t } = useLang();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,35 +43,22 @@ export default function Sobre() {
         {/* Text */}
         <div>
           <p className="reveal-fade text-[#dbba8a] text-xs tracking-[0.4em] uppercase mb-4">
-            O Empreendimento
+            {t.sobre.label}
           </p>
           <h2 className="reveal-up font-serif text-4xl md:text-5xl text-[#1b3025] leading-tight mb-8">
-            Mais que um lugar<br />
-            <span>para morar</span>
+            {t.sobre.title1}<br />
+            <span>{t.sobre.title2}</span>
           </h2>
           <div className="w-12 h-px bg-[#dbba8a] mb-8 reveal-fade" />
           <p className="reveal-up text-[#1b3025]/70 text-lg leading-relaxed mb-6">
-            Entrecampos 43 nasce no coração de uma das zonas mais dinâmicas de
-            Lisboa, na Rua de Entrecampos. Um empreendimento pensado para quem
-            vive a cidade ao ritmo certo, entre mobilidade, conveniência e
-            qualidade de vida.
+            {t.sobre.body1}
           </p>
           <p className="reveal-up text-[#1b3025]/70 leading-relaxed mb-10">
-            Composto por 13 frações de tipologia T0 e T1, o Entrecampos 43
-            responde às necessidades de estudantes, jovens profissionais e
-            trabalhadores urbanos que valorizam funcionalidade, conforto e uma
-            localização estratégica.
+            {t.sobre.body2}
           </p>
 
-          {/* Key features */}
           <ul className="reveal-up space-y-3 mb-10">
-            {[
-              "Construção nova com estrutura antissísmica",
-              "AC de conduta em todos os apartamentos",
-              "Cozinhas totalmente equipadas",
-              "Estacionamento disponível (maioria das frações)",
-              "Exposição solar nascente/poente",
-            ].map((f) => (
+            {t.sobre.features.map((f) => (
               <li key={f} className="flex items-start gap-3 text-[#1b3025]/80">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#dbba8a] shrink-0" />
                 {f}
@@ -73,8 +67,8 @@ export default function Sobre() {
           </ul>
 
           <div className="reveal-up bg-[#1b3025] text-[#f7f3ee] p-6 inline-block">
-            <p className="text-xs text-[#dbba8a] tracking-widest uppercase mb-2">Plano de Pagamento</p>
-            <p className="font-serif text-lg">Reserva 5.000 € · CPCV 10% · Escritura 90%</p>
+            <p className="text-xs text-[#dbba8a] tracking-widest uppercase mb-2">{t.sobre.paymentLabel}</p>
+            <p className="font-serif text-lg">{t.sobre.paymentValue}</p>
           </div>
         </div>
 
@@ -89,18 +83,12 @@ export default function Sobre() {
             />
           </div>
 
-          {/* Stats grid */}
           <div className="grid grid-cols-4 gap-px bg-[#1b3025]/10">
             {stats.map((s) => (
-              <div
-                key={s.label}
-                className="reveal-up bg-[#f7f3ee] p-5 text-center"
-              >
-                <p className="font-serif text-3xl text-[#1b3025] font-light mb-1">
-                  {s.value}
-                </p>
+              <div key={s.labelKey} className="reveal-up bg-[#f7f3ee] p-5 text-center">
+                <p className="font-serif text-3xl text-[#1b3025] font-light mb-1">{s.value}</p>
                 <p className="text-xs text-[#1b3025]/50 tracking-wider uppercase">
-                  {s.label}
+                  {statsLabels[lang][s.labelKey]}
                 </p>
               </div>
             ))}

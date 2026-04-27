@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { Car, Leaf } from "lucide-react";
+import { useLang } from "../context/LangContext";
 
 const fracoes = [
   { id: "A", tipo: "T0", piso: 0, abc: 39.61, preco: 450000, parking: false, varanda: false },
@@ -18,12 +19,14 @@ const fracoes = [
   { id: "M", tipo: "T1", piso: 4, abc: 80.09, preco: 590000, parking: true,  varanda: true  },
 ];
 
-function fmt(n: number) {
-  return n.toLocaleString("pt-PT") + " €";
-}
-
 export default function Precos() {
+  const { lang, t } = useLang();
   const ref = useRef<HTMLDivElement>(null);
+
+  const fmt = (n: number) =>
+    lang === "pt"
+      ? n.toLocaleString("pt-PT") + " €"
+      : "€" + n.toLocaleString("en-GB");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,24 +51,20 @@ export default function Precos() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
           <p className="reveal-fade text-[#dbba8a] text-xs tracking-[0.4em] uppercase mb-4">
-            Tabela de Preços
+            {t.precos.label}
           </p>
           <h2 className="reveal-up font-serif text-4xl md:text-5xl text-white font-light">
-            Todas as Frações
+            {t.precos.title}
           </h2>
           <div className="w-12 h-px bg-[#dbba8a] mx-auto mt-6 reveal-fade" />
         </div>
 
-        {/* Table */}
         <div className="reveal-fade overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-[#dbba8a]/30">
-                {["Fração", "Tipo", "Piso", "Área (m²)", "Extras", "Preço"].map((h) => (
-                  <th
-                    key={h}
-                    className="pb-4 text-left text-[#dbba8a] text-xs tracking-widest uppercase font-normal pr-6 last:pr-0"
-                  >
+                {t.precos.headers.map((h) => (
+                  <th key={h} className="pb-4 text-left text-[#dbba8a] text-xs tracking-widest uppercase font-normal pr-6 last:pr-0">
                     {h}
                   </th>
                 ))}
@@ -73,58 +72,40 @@ export default function Precos() {
             </thead>
             <tbody>
               {fracoes.map((f, i) => (
-                <tr
-                  key={f.id}
-                  className={`border-b border-white/5 hover:bg-white/5 transition-colors duration-150 ${
-                    i % 2 === 0 ? "" : "bg-white/[0.02]"
-                  }`}
-                >
+                <tr key={f.id} className={`border-b border-white/5 hover:bg-white/5 transition-colors duration-150 ${i % 2 === 0 ? "" : "bg-white/[0.02]"}`}>
                   <td className="py-4 pr-6">
-                    <span className="font-serif text-white text-base">
-                      Fração {f.id}
-                    </span>
+                    <span className="font-serif text-white text-base">{t.precos.fracao} {f.id}</span>
                   </td>
                   <td className="py-4 pr-6">
-                    <span className="text-[#dbba8a] text-xs font-medium tracking-wider">
-                      {f.tipo}
-                    </span>
+                    <span className="text-[#dbba8a] text-xs font-medium tracking-wider">{f.tipo}</span>
                   </td>
                   <td className="py-4 pr-6 text-white/60">{f.piso}</td>
                   <td className="py-4 pr-6 text-white/80">{f.abc.toFixed(2)}</td>
                   <td className="py-4 pr-6">
                     <span className="flex items-center gap-2 text-white/60">
-                      {f.parking && <Car size={13} strokeWidth={1.5} className="text-[#dbba8a]" />}
-                      {f.varanda && <Leaf size={13} strokeWidth={1.5} className="text-[#dbba8a]" />}
+                      {f.parking && <Car size={13} strokeWidth={1.5} className="text-[#dbba8a]" title={t.precos.extras.parking} />}
+                      {f.varanda && <Leaf size={13} strokeWidth={1.5} className="text-[#dbba8a]" title={t.precos.extras.varanda} />}
                       {!f.parking && !f.varanda && "—"}
                     </span>
                   </td>
-                  <td className="py-4 font-semibold text-white">
-                    {fmt(f.preco)}
-                  </td>
+                  <td className="py-4 font-semibold text-white">{fmt(f.preco)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* Payment info */}
         <div className="reveal-up mt-12 grid sm:grid-cols-3 gap-px bg-[#dbba8a]/20">
-          {[
-            { step: "01", label: "Reserva", value: "5.000 €" },
-            { step: "02", label: "CPCV", value: "10% do preço" },
-            { step: "03", label: "Escritura", value: "90% do preço" },
-          ].map((s) => (
-            <div key={s.step} className="bg-[#1b3025] p-8 text-center">
-              <p className="text-[#dbba8a]/40 text-4xl font-serif mb-3">{s.step}</p>
+          {t.precos.steps.map((s, i) => (
+            <div key={s.label} className="bg-[#1b3025] p-8 text-center">
+              <p className="text-[#dbba8a]/40 text-4xl font-serif mb-3">0{i + 1}</p>
               <p className="text-white/50 text-xs tracking-widest uppercase mb-2">{s.label}</p>
               <p className="text-white font-serif text-xl">{s.value}</p>
             </div>
           ))}
         </div>
 
-        <p className="reveal-fade text-center text-white/30 text-xs mt-8">
-          Preços indicativos. Sujeito a alteração. Consulte o mediador para informação atualizada.
-        </p>
+        <p className="reveal-fade text-center text-white/30 text-xs mt-8">{t.precos.disclaimer}</p>
       </div>
     </section>
   );

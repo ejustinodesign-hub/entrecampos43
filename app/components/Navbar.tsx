@@ -1,18 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
-const links = [
-  { href: "#sobre",       label: "Sobre" },
-  { href: "#localizacao", label: "Localização" },
-  { href: "#tipologias",  label: "Tipologias" },
-  { href: "#plantas",     label: "Plantas" },
-  { href: "#precos",      label: "Preços" },
-  { href: "#galeria",     label: "Galeria" },
-  { href: "#contacto",    label: "Contacto" },
-];
+import { useLang } from "../context/LangContext";
 
 export default function Navbar() {
+  const { lang, t, toggle } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -22,6 +14,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  const links = [
+    { href: "#sobre",       label: t.nav.sobre },
+    { href: "#localizacao", label: t.nav.localizacao },
+    { href: "#tipologias",  label: t.nav.tipologias },
+    { href: "#plantas",     label: t.nav.plantas },
+    { href: "#precos",      label: t.nav.precos },
+    { href: "#galeria",     label: t.nav.galeria },
+    { href: "#contacto",    label: t.nav.contacto },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
@@ -30,7 +32,6 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="#">
-          {/* Logo branco sempre — navbar está sempre sobre fundo escuro/transparente */}
           <Image
             src="/images/logos/logo-branco.svg"
             alt="Entrecampos 43"
@@ -53,12 +54,23 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="#contacto"
-          className="hidden lg:inline-flex items-center bg-[#dbba8a] text-[#1b3025] px-5 py-2.5 text-sm font-semibold tracking-wider uppercase hover:bg-[#e8ceab] transition-colors duration-200"
-        >
-          Contactar
-        </a>
+        <div className="hidden lg:flex items-center gap-3">
+          {/* Language toggle */}
+          <button
+            onClick={toggle}
+            className="text-white/60 hover:text-white text-xs tracking-widest uppercase transition-colors duration-200 border border-white/20 hover:border-white/50 px-3 py-2"
+            aria-label="Toggle language"
+          >
+            {lang === "pt" ? "EN" : "PT"}
+          </button>
+
+          <a
+            href="#contacto"
+            className="inline-flex items-center bg-[#dbba8a] text-[#1b3025] px-5 py-2.5 text-sm font-semibold tracking-wider uppercase hover:bg-[#e8ceab] transition-colors duration-200"
+          >
+            {t.nav.cta}
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button className="lg:hidden text-white p-2" onClick={() => setOpen(!open)} aria-label="Menu">
@@ -82,13 +94,21 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href="#contacto"
-            onClick={() => setOpen(false)}
-            className="mt-2 text-center bg-[#dbba8a] text-[#1b3025] px-5 py-3 text-sm font-semibold tracking-wider uppercase"
-          >
-            Contactar
-          </a>
+          <div className="flex items-center gap-3 mt-2">
+            <button
+              onClick={toggle}
+              className="text-white/60 hover:text-white text-xs tracking-widest uppercase transition-colors border border-white/20 px-3 py-2.5"
+            >
+              {lang === "pt" ? "EN" : "PT"}
+            </button>
+            <a
+              href="#contacto"
+              onClick={() => setOpen(false)}
+              className="flex-1 text-center bg-[#dbba8a] text-[#1b3025] px-5 py-3 text-sm font-semibold tracking-wider uppercase"
+            >
+              {t.nav.cta}
+            </a>
+          </div>
         </div>
       )}
     </header>
