@@ -89,6 +89,7 @@ export default function Navbar() {
             </div>
           </button>
         </div>
+      </div>
 
       {open && (
         <div className="lg:hidden bg-[#1b3025] border-t border-[#dbba8a]/20 px-6 py-6 flex flex-col gap-5">
