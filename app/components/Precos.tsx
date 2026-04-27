@@ -83,8 +83,8 @@ export default function Precos() {
                   <td className="py-4 pr-6 text-white/80">{f.abc.toFixed(2)}</td>
                   <td className="py-4 pr-6">
                     <span className="flex items-center gap-2 text-white/60">
-                      {f.parking && <Car size={13} strokeWidth={1.5} className="text-[#dbba8a]" title={t.precos.extras.parking} />}
-                      {f.varanda && <Leaf size={13} strokeWidth={1.5} className="text-[#dbba8a]" title={t.precos.extras.varanda} />}
+                      {f.parking && <Car size={13} strokeWidth={1.5} className="text-[#dbba8a]" />}
+                      {f.varanda && <Leaf size={13} strokeWidth={1.5} className="text-[#dbba8a]" />}
                       {!f.parking && !f.varanda && "—"}
                     </span>
                   </td>
