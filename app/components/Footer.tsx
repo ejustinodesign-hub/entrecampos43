@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-10 border-b border-white/10 pb-10 mb-8">
           <div className="flex flex-col items-center gap-2">
             <p className="text-white/20 text-[10px] tracking-widest uppercase">{t.footer.construtora}</p>
-            <Image src="/images/logos/Unni-03-2.png" alt="UNNI" width={120} height={40} className="h-8 w-auto opacity-50 hover:opacity-80 transition-opacity" style={{ filter: "brightness(0) invert(1)" }} />
+            <Image src="/images/logos/Unni-03-2.png" alt="UNNI" width={120} height={40} className="h-8 w-auto opacity-50 hover:opacity-80 transition-opacity" />
           </div>
           <div className="w-px h-8 bg-white/10" />
           <div className="flex flex-col items-center gap-2">
