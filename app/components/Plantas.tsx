@@ -108,8 +108,15 @@ export default function Plantas() {
                     <span className="text-xs bg-[#1b3025]/10 text-[#1b3025] px-2 py-0.5">{tipo.tipo}</span>
                   </div>
                   <p className="text-xs text-[#1b3025]/50 mb-3">{label.fracoes}</p>
-                  <p className="text-sm font-medium text-[#1b3025]">{tipo.area}</p>
-                  <div className="flex gap-3 mt-2">
+                  <div className="mt-3 space-y-1.5 border-t border-[#1b3025]/10 pt-3">
+                    {roomsData[i].map((room) => (
+                      <div key={room.pt} className="flex items-center justify-between">
+                        <span className="text-[#1b3025]/50 text-[11px]">{lang === "pt" ? room.pt : room.en}</span>
+                        <span className="text-[#1b3025]/70 text-[11px] font-medium tabular-nums">{room.area.toFixed(2)} m²</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex gap-3 mt-3">
                     {tipo.parking && (
                       <span className="flex items-center gap-1 text-xs text-[#dbba8a]">
                         <Car size={12} strokeWidth={1.5} /> {t.plantas.estac}
