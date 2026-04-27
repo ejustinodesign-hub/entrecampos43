@@ -11,8 +11,35 @@ const tiposData = [
   { id: "D", tipo: "T1", area: "65–80 m²", parking: true,  varanda: true,  img: "/images/plantas/Tipo_D_3D.png" },
 ];
 
+const roomsData = [
+  [
+    { pt: "Sala/Kitchenette", en: "Living/Kitchenette", area: 27.90 },
+    { pt: "I.S.",             en: "Bathroom",           area: 4.95  },
+  ],
+  [
+    { pt: "Sala/Kitchenette", en: "Living/Kitchenette", area: 26.75 },
+    { pt: "Quarto",           en: "Bedroom",            area: 10.85 },
+    { pt: "Hall",             en: "Hall",               area: 5.77  },
+    { pt: "I.S.",             en: "Bathroom",           area: 4.31  },
+    { pt: "Varanda",          en: "Balcony",            area: 5.60  },
+  ],
+  [
+    { pt: "Sala/Kitchenette", en: "Living/Kitchenette", area: 22.05 },
+    { pt: "Quarto",           en: "Bedroom",            area: 11.37 },
+    { pt: "I.S.",             en: "Bathroom",           area: 6.82  },
+    { pt: "Varanda",          en: "Balcony",            area: 0.85  },
+  ],
+  [
+    { pt: "Sala/Kitchenette", en: "Living/Kitchenette", area: 33.21 },
+    { pt: "Quarto",           en: "Bedroom",            area: 12.63 },
+    { pt: "Circ.",            en: "Circulation",        area: 3.25  },
+    { pt: "I.S.",             en: "Bathroom",           area: 4.11  },
+    { pt: "Varanda",          en: "Balcony",            area: 4.00  },
+  ],
+];
+
 export default function Plantas() {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const ref = useRef<HTMLDivElement>(null);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
@@ -148,7 +175,23 @@ export default function Plantas() {
               </div>
             </div>
 
-            <div className="px-6 pb-6 bg-white">
+            <div className="px-6 pb-2 bg-white">
+              <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-3">
+                {lang === "pt" ? "Divisões" : "Rooms"}
+              </p>
+              <div className="grid grid-cols-2 gap-x-8 gap-y-2 pb-4 border-b border-[#1b3025]/10">
+                {roomsData[selectedIdx].map((room) => (
+                  <div key={room.pt} className="flex items-center justify-between">
+                    <span className="text-[#1b3025]/60 text-xs">{lang === "pt" ? room.pt : room.en}</span>
+                    <span className="text-[#1b3025] text-xs font-medium tabular-nums">
+                      {room.area.toFixed(2)} m²
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="px-6 pb-6 bg-white pt-4">
               <a href="#contacto" onClick={() => setSelectedIdx(null)} className="block text-center bg-[#1b3025] text-[#dbba8a] py-4 text-sm tracking-widest uppercase hover:bg-[#243d30] transition-colors">
                 {t.plantas.modalLabels.cta}
               </a>
