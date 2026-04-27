@@ -5,10 +5,10 @@ import { Car, Leaf, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLang } from "../context/LangContext";
 
 const tiposData = [
-  { id: "A", tipo: "T0", area: "39,61 m²", parking: false, varanda: false, img: "/images/plantas/Tipo_A.png" },
-  { id: "B", tipo: "T1", area: "54–65 m²", parking: true,  varanda: false, img: "/images/plantas/Tipo_B.png" },
-  { id: "C", tipo: "T1", area: "56–73 m²", parking: true,  varanda: true,  img: "/images/plantas/Tipo_C.png" },
-  { id: "D", tipo: "T1", area: "65–80 m²", parking: true,  varanda: true,  img: "/images/plantas/Tipo_D.png" },
+  { id: "A", tipo: "T0", area: "39,61 m²", parking: false, varanda: false, img: "/images/plantas/Tipo_A_3D.png" },
+  { id: "B", tipo: "T1", area: "54–65 m²", parking: true,  varanda: false, img: "/images/plantas/Tipo_B_3D.png" },
+  { id: "C", tipo: "T1", area: "56–73 m²", parking: true,  varanda: true,  img: "/images/plantas/Tipo_C_3D.png" },
+  { id: "D", tipo: "T1", area: "65–80 m²", parking: true,  varanda: true,  img: "/images/plantas/Tipo_D_3D.png" },
 ];
 
 export default function Plantas() {
@@ -51,7 +51,7 @@ export default function Plantas() {
   }, []);
 
   return (
-    <section id="plantas" ref={ref} className="py-28 px-6 bg-[#ede8e0]">
+    <section id="plantas" ref={ref} className="py-28 px-6 bg-[#f7f3ee]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <p className="reveal-fade text-[#dbba8a] text-xs tracking-[0.4em] uppercase mb-4">
@@ -70,9 +70,9 @@ export default function Plantas() {
               <button
                 key={tipo.id}
                 onClick={() => setSelectedIdx(i)}
-                className="reveal-up group text-left bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="reveal-up group text-left bg-[#f7f3ee] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="relative bg-white flex items-center justify-center" style={{ height: 280 }}>
+                <div className="relative bg-[#f7f3ee] flex items-center justify-center" style={{ height: 280 }}>
                   <Image src={tipo.img} alt={label.label} fill className="object-contain p-6 transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-5 border-t border-[#1b3025]/10">
@@ -103,7 +103,7 @@ export default function Plantas() {
 
       {selected && selectedIdx !== null && selectedTipo && (
         <div className="modal-backdrop" onClick={() => setSelectedIdx(null)}>
-          <div className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto relative" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-[#f7f3ee] max-w-2xl w-full max-h-[90vh] overflow-y-auto relative" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between p-5 bg-[#1b3025]">
               <div>
                 <h3 className="font-serif text-white text-2xl">{selectedTipo.label}</h3>
@@ -117,7 +117,7 @@ export default function Plantas() {
               </div>
             </div>
 
-            <div className="relative bg-white flex items-center justify-center">
+            <div className="relative bg-[#f7f3ee] flex items-center justify-center">
               <Image src={selected.img} alt={selectedTipo.label} width={600} height={800} className="w-full h-auto object-contain" style={{ display: "block" }} />
               <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#1b3025]/80 hover:bg-[#1b3025] text-white p-2 transition-colors">
                 <ChevronLeft size={22} strokeWidth={1.5} />
@@ -127,7 +127,7 @@ export default function Plantas() {
               </button>
             </div>
 
-            <div className="p-6 grid grid-cols-2 gap-4">
+            <div className="p-6 grid grid-cols-2 gap-4 bg-white">
               <div>
                 <p className="text-xs text-[#1b3025]/40 tracking-wider uppercase mb-1">{t.plantas.modalLabels.tipologia}</p>
                 <p className="font-serif text-[#1b3025] text-xl">{selected.tipo}</p>
@@ -148,7 +148,7 @@ export default function Plantas() {
               </div>
             </div>
 
-            <div className="px-6 pb-6">
+            <div className="px-6 pb-6 bg-white">
               <a href="#contacto" onClick={() => setSelectedIdx(null)} className="block text-center bg-[#1b3025] text-[#dbba8a] py-4 text-sm tracking-widest uppercase hover:bg-[#243d30] transition-colors">
                 {t.plantas.modalLabels.cta}
               </a>
