@@ -15,6 +15,11 @@ const statsLabels = {
   en: { fracoes: "Units", tipologias: "Typologies", pisos: "Floors", conclusao: "Completion" },
 };
 
+const statsValues: Record<"pt" | "en", Record<string, string>> = {
+  pt: { conclusao: "4º Tri 2026" },
+  en: { conclusao: "Q4 2026" },
+};
+
 export default function Sobre() {
   const { lang, t } = useLang();
   const ref = useRef<HTMLDivElement>(null);
@@ -86,7 +91,7 @@ export default function Sobre() {
           <div className="grid grid-cols-4 gap-px bg-[#1b3025]/10">
             {stats.map((s) => (
               <div key={s.labelKey} className="reveal-up bg-[#f7f3ee] p-5 text-center">
-                <p className="font-serif text-3xl text-[#1b3025] font-light mb-1">{s.value}</p>
+                <p className="font-serif text-3xl text-[#1b3025] font-light mb-1">{statsValues[lang]?.[s.labelKey] ?? s.value}</p>
                 <p className="text-xs text-[#1b3025]/50 tracking-wider uppercase">
                   {statsLabels[lang][s.labelKey]}
                 </p>
