@@ -96,7 +96,16 @@ export default function Precos() {
           </table>
         </div>
 
-        <div className="reveal-up mt-12 grid sm:grid-cols-3 gap-px bg-[#dbba8a]/20">
+        <div className="reveal-fade mt-4 flex items-center gap-5 text-white/40 text-xs">
+          <span className="flex items-center gap-1.5">
+            <Car size={12} strokeWidth={1.5} className="text-[#dbba8a]" /> {t.plantas.estac}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Leaf size={12} strokeWidth={1.5} className="text-[#dbba8a]" /> {t.plantas.varanda}
+          </span>
+        </div>
+
+        <div className="reveal-up mt-10 grid sm:grid-cols-3 gap-px bg-[#dbba8a]/20">
           {t.precos.steps.map((s, i) => (
             <div key={s.label} className="bg-[#1b3025] p-8 text-center">
               <p className="text-[#dbba8a]/40 text-4xl font-serif mb-3">0{i + 1}</p>

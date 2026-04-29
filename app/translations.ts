@@ -271,7 +271,7 @@ export const pt: Translations = {
     agentLabel: "Mediador Imobiliário",
     agentRole: "RE/MAX · Mediação Imobiliária",
     construtora: "Construtora",
-    conclusao: "Conclusão prevista: Setembro 2026",
+    conclusao: "Conclusão prevista: Último trimestre 2026",
     formLabels: {
       nome: "Nome *",
       telefone: "Telefone",
@@ -449,7 +449,7 @@ export const en: Translations = {
     agentLabel: "Real Estate Agent",
     agentRole: "RE/MAX · Real Estate",
     construtora: "Developer",
-    conclusao: "Expected completion: September 2026",
+    conclusao: "Expected completion: Last quarter 2026",
     formLabels: {
       nome: "Name *",
       telefone: "Phone",
