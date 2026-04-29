@@ -7,7 +7,7 @@ const stats = [
   { value: "13", labelKey: "fracoes" as const },
   { value: "T0/T1", labelKey: "tipologias" as const },
   { value: "5", labelKey: "pisos" as const },
-  { value: "Set. 2026", labelKey: "conclusao" as const },
+  { value: "Q4 2026", labelKey: "conclusao" as const },
 ];
 
 const statsLabels = {
