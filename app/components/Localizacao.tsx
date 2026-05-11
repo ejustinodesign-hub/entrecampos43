@@ -27,22 +27,27 @@ function loadGoogleMap() {
   window.initEntrecamposMap = () => {
     const el = document.getElementById("entrecampos-map");
     if (!el) return;
-    const pos = { lat: 38.7417, lng: -9.1497 };
-    const map = new window.google.maps.Map(el, {
-      center: pos, zoom: 16,
-      styles: MAP_STYLES,
-      disableDefaultUI: true,
-      zoomControl: true,
-    });
-    new window.google.maps.Marker({
-      position: pos,
-      map,
-      icon: {
-        url: "/images/favicon.png",
-        scaledSize: new window.google.maps.Size(48, 48),
-        anchor: new window.google.maps.Point(24, 48),
-      },
-      title: "Entrecampos 43",
+    const address = "R. de Entrecampos 43, 1700-157 Lisboa, Portugal";
+    const geocoder = new window.google.maps.Geocoder();
+    geocoder.geocode({ address }, (results: any, status: any) => {
+      if (status !== "OK" || !results?.[0]) return;
+      const pos = results[0].geometry.location;
+      const map = new window.google.maps.Map(el, {
+        center: pos, zoom: 17,
+        styles: MAP_STYLES,
+        disableDefaultUI: true,
+        zoomControl: true,
+      });
+      new window.google.maps.Marker({
+        position: pos,
+        map,
+        icon: {
+          url: "/images/favicon.png",
+          scaledSize: new window.google.maps.Size(48, 48),
+          anchor: new window.google.maps.Point(24, 48),
+        },
+        title: "Entrecampos 43",
+      });
     });
   };
   if (!document.getElementById("gmaps-script")) {
