@@ -6,9 +6,9 @@ import { useLang } from "../context/LangContext";
 
 const renders = [
   ["/images/interior/LVS 08 A.jpg", "/images/interior/LVS 08 A_1.jpg", "/images/interior/LVS 08 A_2.jpg"],
-  ["/images/interior/LVS 08 D.jpg", "/images/interior/LVS 08 D_1.jpg", "/images/interior/LVS 08 D_2.jpg", "/images/interior/LVS 08 D_3.jpg"],
   ["/images/interior/LVS 08 B.jpg", "/images/interior/LVS 08 B_1.jpg", "/images/interior/LVS 08 B_2.jpg", "/images/interior/LVS 08 B_3.jpg"],
   ["/images/interior/LVS 08 C.jpg", "/images/interior/LVS 08 C_1.jpg", "/images/interior/LVS 08 C_2.jpg", "/images/interior/LVS 08 C_3.jpg"],
+  ["/images/interior/LVS 08 D.jpg", "/images/interior/LVS 08 D_1.jpg", "/images/interior/LVS 08 D_2.jpg", "/images/interior/LVS 08 D_3.jpg"],
 ];
 
 const precos = ["450.000 €", "a partir de 530.000 €", "a partir de 550.000 €", "a partir de 575.000 €"];
