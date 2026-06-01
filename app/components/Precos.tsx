@@ -4,19 +4,19 @@ import { Car, Leaf } from "lucide-react";
 import { useLang } from "../context/LangContext";
 
 const fracoes = [
-  { id: "A", tipo: "T0", piso: 0, abp: 39.61, abc: 39.61, preco: 450000, parking: false, varanda: false },
-  { id: "B", tipo: "T1", piso: 1, abp: 54.12, abc: 72.29, preco: 530000, parking: true,  varanda: false },
-  { id: "C", tipo: "T1", piso: 1, abp: 56.71, abc: 62.52, preco: 550000, parking: true,  varanda: true  },
-  { id: "D", tipo: "T1", piso: 1, abp: 65.39, abc: 79.76, preco: 575000, parking: true,  varanda: true  },
-  { id: "E", tipo: "T1", piso: 2, abp: 54.12, abc: 65.65, preco: 535000, parking: true,  varanda: true  },
-  { id: "F", tipo: "T1", piso: 2, abp: 56.71, abc: 73.19, preco: 555000, parking: true,  varanda: true  },
-  { id: "G", tipo: "T1", piso: 2, abp: 65.39, abc: 79.76, preco: 580000, parking: true,  varanda: true  },
-  { id: "H", tipo: "T1", piso: 3, abp: 54.12, abc: 64.79, preco: 540000, parking: true,  varanda: false },
-  { id: "I", tipo: "T1", piso: 3, abp: 56.71, abc: 73.19, preco: 560000, parking: true,  varanda: true  },
-  { id: "J", tipo: "T1", piso: 3, abp: 65.39, abc: 80.02, preco: 585000, parking: true,  varanda: true  },
-  { id: "K", tipo: "T1", piso: 4, abp: 54.12, abc: 65.05, preco: 545000, parking: true,  varanda: false },
-  { id: "L", tipo: "T1", piso: 4, abp: 56.71, abc: 73.52, preco: 565000, parking: true,  varanda: true  },
-  { id: "M", tipo: "T1", piso: 4, abp: 65.39, abc: 80.09, preco: 590000, parking: true,  varanda: true  },
+  { id: "A", tipo: "T0",        piso: 0, abp: 39.61, abc: 39.61, preco: 450000, parking: false, varanda: false, reservada: false },
+  { id: "B", tipo: "T1 Tipo B", piso: 1, abp: 54.12, abc: 72.29, preco: 530000, parking: true,  varanda: false, reservada: true  },
+  { id: "C", tipo: "T1 Tipo A", piso: 1, abp: 56.71, abc: 62.52, preco: 550000, parking: false, varanda: true,  reservada: true  },
+  { id: "D", tipo: "T1 Tipo C", piso: 1, abp: 65.39, abc: 79.76, preco: 575000, parking: true,  varanda: true,  reservada: false },
+  { id: "E", tipo: "T1 Tipo B", piso: 2, abp: 54.12, abc: 65.65, preco: 535000, parking: true,  varanda: true,  reservada: true  },
+  { id: "F", tipo: "T1 Tipo A", piso: 2, abp: 56.71, abc: 73.19, preco: 555000, parking: true,  varanda: true,  reservada: false },
+  { id: "G", tipo: "T1 Tipo C", piso: 2, abp: 65.39, abc: 79.76, preco: 580000, parking: true,  varanda: true,  reservada: false },
+  { id: "H", tipo: "T1 Tipo B", piso: 3, abp: 54.12, abc: 64.79, preco: 540000, parking: true,  varanda: false, reservada: true  },
+  { id: "I", tipo: "T1 Tipo A", piso: 3, abp: 56.71, abc: 73.19, preco: 560000, parking: true,  varanda: true,  reservada: false },
+  { id: "J", tipo: "T1 Tipo C", piso: 3, abp: 65.39, abc: 80.02, preco: 585000, parking: true,  varanda: true,  reservada: false },
+  { id: "K", tipo: "T1 Tipo B", piso: 4, abp: 54.12, abc: 65.05, preco: 545000, parking: true,  varanda: false, reservada: false },
+  { id: "L", tipo: "T1 Tipo A", piso: 4, abp: 56.71, abc: 73.52, preco: 565000, parking: true,  varanda: true,  reservada: false },
+  { id: "M", tipo: "T1 Tipo C", piso: 4, abp: 65.39, abc: 80.09, preco: 590000, parking: true,  varanda: true,  reservada: false },
 ];
 
 export default function Precos() {
@@ -89,7 +89,12 @@ export default function Precos() {
                       {!f.parking && !f.varanda && "—"}
                     </span>
                   </td>
-                  <td className="py-4 font-semibold text-white">{fmt(f.preco)}</td>
+                  <td className="py-4">
+                    <span className="font-semibold text-white">{fmt(f.preco)}</span>
+                    {f.reservada && (
+                      <span className="ml-2 text-[10px] tracking-widest uppercase text-[#dbba8a]/60 font-normal">Reservada</span>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
