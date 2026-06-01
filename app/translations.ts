@@ -195,18 +195,18 @@ export const pt: Translations = {
         preco: "450.000 €",
       },
       {
-        tipo: "T1 — Tipo B",
-        descricao:
-          "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
-        area: "54 – 65 m²",
-        preco: "a partir de 530.000 €",
-      },
-      {
         tipo: "T1 — Tipo A",
         descricao:
           "T1 com varanda e excelente exposição solar. Ambientes generosos e acabamentos de alta qualidade.",
         area: "56 – 73 m²",
         preco: "a partir de 550.000 €",
+      },
+      {
+        tipo: "T1 — Tipo B",
+        descricao:
+          "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
+        area: "54 – 65 m²",
+        preco: "a partir de 530.000 €",
       },
       {
         tipo: "T1 — Tipo C",
@@ -374,18 +374,18 @@ export const en: Translations = {
         preco: "€450,000",
       },
       {
-        tipo: "T1 — Type B",
-        descricao:
-          "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
-        area: "54 – 65 m²",
-        preco: "from €530,000",
-      },
-      {
         tipo: "T1 — Type A",
         descricao:
           "T1 with balcony and excellent sun exposure. Generous living spaces and high-quality finishes.",
         area: "56 – 73 m²",
         preco: "from €550,000",
+      },
+      {
+        tipo: "T1 — Type B",
+        descricao:
+          "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
+        area: "54 – 65 m²",
+        preco: "from €530,000",
       },
       {
         tipo: "T1 — Type C",
