@@ -234,8 +234,8 @@ export const pt: Translations = {
     },
     tipos: [
       { label: "Tipo T0", fracoes: "Fração A" },
-      { label: "T1 — Tipo B", fracoes: "Frações B · E · H · K" },
       { label: "T1 — Tipo A", fracoes: "Frações C · F · I · L" },
+      { label: "T1 — Tipo B", fracoes: "Frações B · E · H · K" },
       { label: "T1 — Tipo C", fracoes: "Frações D · G · J · M" },
     ],
   },
@@ -413,8 +413,8 @@ export const en: Translations = {
     },
     tipos: [
       { label: "T0 Type", fracoes: "Unit A" },
-      { label: "T1 — Type B", fracoes: "Units B · E · H · K" },
       { label: "T1 — Type A", fracoes: "Units C · F · I · L" },
+      { label: "T1 — Type B", fracoes: "Units B · E · H · K" },
       { label: "T1 — Type C", fracoes: "Units D · G · J · M" },
     ],
   },
