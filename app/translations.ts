@@ -195,18 +195,18 @@ export const pt: Translations = {
         preco: "450.000 €",
       },
       {
-        tipo: "T1 — Tipo C",
-        descricao:
-          "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
-        area: "54 – 65 m²",
-        preco: "a partir de 530.000 €",
-      },
-      {
         tipo: "T1 — Tipo B",
         descricao:
           "T1 com varanda e excelente exposição solar. Ambientes generosos e acabamentos de alta qualidade.",
         area: "56 – 73 m²",
         preco: "a partir de 550.000 €",
+      },
+      {
+        tipo: "T1 — Tipo C",
+        descricao:
+          "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
+        area: "54 – 65 m²",
+        preco: "a partir de 530.000 €",
       },
       {
         tipo: "T1 — Tipo D",
@@ -234,8 +234,8 @@ export const pt: Translations = {
     },
     tipos: [
       { label: "T0 — Tipo A", fracoes: "Fração A" },
-      { label: "T1 — Tipo C", fracoes: "Frações B · E · H · K" },
       { label: "T1 — Tipo B", fracoes: "Frações C · F · I · L" },
+      { label: "T1 — Tipo C", fracoes: "Frações B · E · H · K" },
       { label: "T1 — Tipo D", fracoes: "Frações D · G · J · M" },
     ],
   },
@@ -374,18 +374,18 @@ export const en: Translations = {
         preco: "€450,000",
       },
       {
-        tipo: "T1 — Type C",
-        descricao:
-          "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
-        area: "54 – 65 m²",
-        preco: "from €530,000",
-      },
-      {
         tipo: "T1 — Type B",
         descricao:
           "T1 with balcony and excellent sun exposure. Generous living spaces and high-quality finishes.",
         area: "56 – 73 m²",
         preco: "from €550,000",
+      },
+      {
+        tipo: "T1 — Type C",
+        descricao:
+          "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
+        area: "54 – 65 m²",
+        preco: "from €530,000",
       },
       {
         tipo: "T1 — Type D",
@@ -413,8 +413,8 @@ export const en: Translations = {
     },
     tipos: [
       { label: "T0 — Type A", fracoes: "Unit A" },
-      { label: "T1 — Type C", fracoes: "Units B · E · H · K" },
       { label: "T1 — Type B", fracoes: "Units C · F · I · L" },
+      { label: "T1 — Type C", fracoes: "Units B · E · H · K" },
       { label: "T1 — Type D", fracoes: "Units D · G · J · M" },
     ],
   },
