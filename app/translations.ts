@@ -233,7 +233,7 @@ export const pt: Translations = {
       varanda: "Varanda",
     },
     tipos: [
-      { label: "Tipo T0", fracoes: "Fração A" },
+      { label: "T0 — Tipo A", fracoes: "Fração A" },
       { label: "T1 — Tipo B", fracoes: "Frações B · E · H · K" },
       { label: "T1 — Tipo C", fracoes: "Frações C · F · I · L" },
       { label: "T1 — Tipo D", fracoes: "Frações D · G · J · M" },
@@ -412,7 +412,7 @@ export const en: Translations = {
       varanda: "Balcony",
     },
     tipos: [
-      { label: "T0 Type", fracoes: "Unit A" },
+      { label: "T0 — Type A", fracoes: "Unit A" },
       { label: "T1 — Type B", fracoes: "Units B · E · H · K" },
       { label: "T1 — Type C", fracoes: "Units C · F · I · L" },
       { label: "T1 — Type D", fracoes: "Units D · G · J · M" },
