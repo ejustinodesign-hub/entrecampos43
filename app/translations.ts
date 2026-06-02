@@ -204,7 +204,7 @@ export const pt: Translations = {
       {
         tipo: "T1 — Tipo C",
         descricao:
-          "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
+          "Apartamento T1 com distribuição eficiente. Ideal para investimento ou habitação própria.",
         area: "54 – 65 m²",
         preco: "a partir de 530.000 €",
       },
