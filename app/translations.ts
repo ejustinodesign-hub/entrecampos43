@@ -197,16 +197,16 @@ export const pt: Translations = {
       {
         tipo: "T1 — Tipo A",
         descricao:
-          "T1 com varanda e excelente exposição solar. Ambientes generosos e acabamentos de alta qualidade.",
-        area: "56 – 73 m²",
-        preco: "a partir de 550.000 €",
+          "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
+        area: "54 – 65 m²",
+        preco: "a partir de 530.000 €",
       },
       {
         tipo: "T1 — Tipo B",
         descricao:
-          "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
-        area: "54 – 65 m²",
-        preco: "a partir de 530.000 €",
+          "T1 com varanda e excelente exposição solar. Ambientes generosos e acabamentos de alta qualidade.",
+        area: "56 – 73 m²",
+        preco: "a partir de 550.000 €",
       },
       {
         tipo: "T1 — Tipo C",
@@ -234,8 +234,8 @@ export const pt: Translations = {
     },
     tipos: [
       { label: "Tipo T0", fracoes: "Fração A" },
-      { label: "T1 — Tipo A", fracoes: "Frações C · F · I · L" },
-      { label: "T1 — Tipo B", fracoes: "Frações B · E · H · K" },
+      { label: "T1 — Tipo A", fracoes: "Frações B · E · H · K" },
+      { label: "T1 — Tipo B", fracoes: "Frações C · F · I · L" },
       { label: "T1 — Tipo C", fracoes: "Frações D · G · J · M" },
     ],
   },
@@ -376,16 +376,16 @@ export const en: Translations = {
       {
         tipo: "T1 — Type A",
         descricao:
-          "T1 with balcony and excellent sun exposure. Generous living spaces and high-quality finishes.",
-        area: "56 – 73 m²",
-        preco: "from €550,000",
+          "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
+        area: "54 – 65 m²",
+        preco: "from €530,000",
       },
       {
         tipo: "T1 — Type B",
         descricao:
-          "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
-        area: "54 – 65 m²",
-        preco: "from €530,000",
+          "T1 with balcony and excellent sun exposure. Generous living spaces and high-quality finishes.",
+        area: "56 – 73 m²",
+        preco: "from €550,000",
       },
       {
         tipo: "T1 — Type C",
@@ -413,8 +413,8 @@ export const en: Translations = {
     },
     tipos: [
       { label: "T0 Type", fracoes: "Unit A" },
-      { label: "T1 — Type A", fracoes: "Units C · F · I · L" },
-      { label: "T1 — Type B", fracoes: "Units B · E · H · K" },
+      { label: "T1 — Type A", fracoes: "Units B · E · H · K" },
+      { label: "T1 — Type B", fracoes: "Units C · F · I · L" },
       { label: "T1 — Type C", fracoes: "Units D · G · J · M" },
     ],
   },
