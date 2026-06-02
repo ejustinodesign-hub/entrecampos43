@@ -195,13 +195,6 @@ export const pt: Translations = {
         preco: "450.000 €",
       },
       {
-        tipo: "T1 — Tipo A",
-        descricao:
-          "T1 com varanda e excelente exposição solar. Ambientes generosos e acabamentos de alta qualidade.",
-        area: "56 – 73 m²",
-        preco: "a partir de 550.000 €",
-      },
-      {
         tipo: "T1 — Tipo B",
         descricao:
           "Apartamento T1 de menor dimensão, com distribuição eficiente. Ideal para investimento ou habitação própria.",
@@ -210,6 +203,13 @@ export const pt: Translations = {
       },
       {
         tipo: "T1 — Tipo C",
+        descricao:
+          "T1 com varanda e excelente exposição solar. Ambientes generosos e acabamentos de alta qualidade.",
+        area: "56 – 73 m²",
+        preco: "a partir de 550.000 €",
+      },
+      {
+        tipo: "T1 — Tipo D",
         descricao:
           "O maior T1 do empreendimento. Espaços amplos, varanda e estacionamento incluído. O melhor de Lisboa.",
         area: "65 – 80 m²",
@@ -234,9 +234,9 @@ export const pt: Translations = {
     },
     tipos: [
       { label: "Tipo T0", fracoes: "Fração A" },
-      { label: "T1 — Tipo A", fracoes: "Frações C · F · I · L" },
       { label: "T1 — Tipo B", fracoes: "Frações B · E · H · K" },
-      { label: "T1 — Tipo C", fracoes: "Frações D · G · J · M" },
+      { label: "T1 — Tipo C", fracoes: "Frações C · F · I · L" },
+      { label: "T1 — Tipo D", fracoes: "Frações D · G · J · M" },
     ],
   },
   precos: {
@@ -374,13 +374,6 @@ export const en: Translations = {
         preco: "€450,000",
       },
       {
-        tipo: "T1 — Type A",
-        descricao:
-          "T1 with balcony and excellent sun exposure. Generous living spaces and high-quality finishes.",
-        area: "56 – 73 m²",
-        preco: "from €550,000",
-      },
-      {
         tipo: "T1 — Type B",
         descricao:
           "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
@@ -389,6 +382,13 @@ export const en: Translations = {
       },
       {
         tipo: "T1 — Type C",
+        descricao:
+          "T1 with balcony and excellent sun exposure. Generous living spaces and high-quality finishes.",
+        area: "56 – 73 m²",
+        preco: "from €550,000",
+      },
+      {
+        tipo: "T1 — Type D",
         descricao:
           "The largest T1 in the development. Spacious rooms, balcony and parking included. The best of Lisbon.",
         area: "65 – 80 m²",
@@ -413,9 +413,9 @@ export const en: Translations = {
     },
     tipos: [
       { label: "T0 Type", fracoes: "Unit A" },
-      { label: "T1 — Type A", fracoes: "Units C · F · I · L" },
       { label: "T1 — Type B", fracoes: "Units B · E · H · K" },
-      { label: "T1 — Type C", fracoes: "Units D · G · J · M" },
+      { label: "T1 — Type C", fracoes: "Units C · F · I · L" },
+      { label: "T1 — Type D", fracoes: "Units D · G · J · M" },
     ],
   },
   precos: {

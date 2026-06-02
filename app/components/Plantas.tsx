@@ -6,8 +6,8 @@ import { useLang } from "../context/LangContext";
 
 const tiposData = [
   { id: "A", tipo: "T0", area: "39,61 m²", parking: false, varanda: false, img: "/images/plantas/Tipo_A_3D.png" },
-  { id: "C", tipo: "T1", area: "56–73 m²", parking: false, varanda: true,  img: "/images/plantas/Tipo_C_3D.png" },
   { id: "B", tipo: "T1", area: "54–65 m²", parking: true,  varanda: false, img: "/images/plantas/Tipo_B_3D.png" },
+  { id: "C", tipo: "T1", area: "56–73 m²", parking: false, varanda: true,  img: "/images/plantas/Tipo_C_3D.png" },
   { id: "D", tipo: "T1", area: "65–80 m²", parking: true,  varanda: true,  img: "/images/plantas/Tipo_D_3D.png" },
 ];
 
