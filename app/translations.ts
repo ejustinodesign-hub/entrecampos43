@@ -154,7 +154,7 @@ export const pt: Translations = {
       "Composto por 13 frações de tipologia T0 e T1, o Entrecampos 43 responde às necessidades de estudantes, jovens profissionais e trabalhadores urbanos que valorizam funcionalidade, conforto e uma localização estratégica.",
     features: [
       "Construção nova com estrutura antissísmica",
-      "AC de conduta em todos os apartamentos",
+      "AC em todos os apartamentos",
       "Cozinhas totalmente equipadas",
       "Estacionamento disponível (maioria das frações)",
       "Exposição solar nascente/poente",
@@ -333,7 +333,7 @@ export const en: Translations = {
       "Comprising 13 units of T0 and T1 typologies, Entrecampos 43 meets the needs of students, young professionals and urban workers who value functionality, comfort and a strategic location.",
     features: [
       "New construction with anti-seismic structure",
-      "Ducted AC in all apartments",
+      "AC in all apartments",
       "Fully equipped kitchens",
       "Parking available (most units)",
       "East/west sun exposure",
