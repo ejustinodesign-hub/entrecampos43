@@ -90,9 +90,10 @@ export default function Precos() {
                     </span>
                   </td>
                   <td className="py-4">
-                    <span className="font-semibold text-white">{fmt(f.preco)}</span>
-                    {f.reservada && (
-                      <span className="ml-2 text-[10px] tracking-widest uppercase text-[#dbba8a]/60 font-normal">Reservada</span>
+                    {f.reservada ? (
+                      <span className="text-[#dbba8a]/50 text-xs tracking-widest uppercase font-normal">Reservado</span>
+                    ) : (
+                      <span className="font-semibold text-white">{fmt(f.preco)}</span>
                     )}
                   </td>
                 </tr>
