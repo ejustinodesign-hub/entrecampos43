@@ -5,11 +5,11 @@ import { useLang } from "../context/LangContext";
 
 const fracoes = [
   { id: "A", tipo: "T0",        piso: 0, abp: 39.61, abc: 39.61, preco: 450000, parking: false, varanda: false, reservada: false },
-  { id: "B", tipo: "T1 Tipo B", piso: 1, abp: 56.71, abc: 62.52, preco: 550000, parking: false, varanda: true,  reservada: true  },
-  { id: "C", tipo: "T1 Tipo C", piso: 1, abp: 54.12, abc: 72.29, preco: 530000, parking: true,  varanda: false, reservada: true  },
+  { id: "B", tipo: "T1 Tipo B", piso: 1, abp: 56.71, abc: 80.69, preco: 550000, parking: true,  varanda: true,  reservada: true  },
+  { id: "C", tipo: "T1 Tipo C", piso: 1, abp: 54.12, abc: 54.12, preco: 530000, parking: false, varanda: false, reservada: true  },
   { id: "D", tipo: "T1 Tipo D", piso: 1, abp: 65.39, abc: 79.76, preco: 575000, parking: true,  varanda: true,  reservada: false },
-  { id: "E", tipo: "T1 Tipo B", piso: 2, abp: 56.71, abc: 73.19, preco: 555000, parking: false, varanda: true,  reservada: true  },
-  { id: "F", tipo: "T1 Tipo C", piso: 2, abp: 54.12, abc: 65.65, preco: 535000, parking: true,  varanda: true,  reservada: false },
+  { id: "E", tipo: "T1 Tipo B", piso: 2, abp: 56.71, abc: 73.19, preco: 555000, parking: true,  varanda: true,  reservada: true  },
+  { id: "F", tipo: "T1 Tipo C", piso: 2, abp: 54.12, abc: 65.65, preco: 535000, parking: true,  varanda: true,  reservada: true  },
   { id: "G", tipo: "T1 Tipo D", piso: 2, abp: 65.39, abc: 79.76, preco: 580000, parking: true,  varanda: true,  reservada: false },
   { id: "H", tipo: "T1 Tipo B", piso: 3, abp: 56.71, abc: 73.19, preco: 560000, parking: true,  varanda: true,  reservada: true  },
   { id: "I", tipo: "T1 Tipo C", piso: 3, abp: 54.12, abc: 64.79, preco: 540000, parking: true,  varanda: false, reservada: false },
