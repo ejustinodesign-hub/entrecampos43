@@ -9,6 +9,7 @@ const tiposData = [
   { id: "C", tipo: "T1", area: "56–73 m²", parking: false, varanda: true,  img: "/images/plantas/Tipo_B_planta.jpg" },
   { id: "B", tipo: "T1", area: "54–65 m²", parking: true,  varanda: false, img: "/images/plantas/Tipo_C_planta.jpg" },
   { id: "D", tipo: "T1", area: "65–80 m²", parking: true,  varanda: true,  img: "/images/plantas/Tipo_D_planta.jpg" },
+  { id: "G", tipo: "Est.", area: "—",       parking: true,  varanda: false, img: "/images/plantas/Garagem_planta.jpg" },
 ];
 
 const roomsData = [
@@ -36,6 +37,7 @@ const roomsData = [
     { pt: "I.S.",             en: "Bathroom",           area: 4.11  },
     { pt: "Varanda",          en: "Balcony",            area: 4.00  },
   ],
+  [],
 ];
 
 export default function Plantas() {
@@ -90,7 +92,7 @@ export default function Plantas() {
           <div className="w-12 h-px bg-[#dbba8a] mx-auto mt-6 reveal-fade" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {tiposData.map((tipo, i) => {
             const label = t.plantas.tipos[i];
             return (

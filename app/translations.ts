@@ -237,6 +237,7 @@ export const pt: Translations = {
       { label: "T1 — Tipo B", fracoes: "Frações B · E · H · K" },
       { label: "T1 — Tipo C", fracoes: "Frações C · F · I · L" },
       { label: "T1 — Tipo D", fracoes: "Frações D · G · J · M" },
+      { label: "Garagem", fracoes: "Piso de Estacionamento" },
     ],
   },
   precos: {
@@ -416,6 +417,7 @@ export const en: Translations = {
       { label: "T1 — Type B", fracoes: "Units B · E · H · K" },
       { label: "T1 — Type C", fracoes: "Units C · F · I · L" },
       { label: "T1 — Type D", fracoes: "Units D · G · J · M" },
+      { label: "Garage", fracoes: "Parking Floor" },
     ],
   },
   precos: {
