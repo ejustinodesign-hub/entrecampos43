@@ -13,7 +13,7 @@ const fracoes = [
   { id: "G", tipo: "T1 Tipo D", piso: 2, abp: 65.39, abc: 79.76, preco: 580000, parking: true,  varanda: true,  reservada: false },
   { id: "H", tipo: "T1 Tipo B", piso: 3, abp: 56.71, abc: 73.19, preco: 560000, parking: true,  varanda: true,  reservada: true  },
   { id: "I", tipo: "T1 Tipo C", piso: 3, abp: 54.12, abc: 64.79, preco: 540000, parking: true,  varanda: false, reservada: false },
-  { id: "J", tipo: "T1 Tipo D", piso: 3, abp: 65.39, abc: 80.02, preco: 585000, parking: true,  varanda: true,  reservada: false },
+  { id: "J", tipo: "T1 Tipo D", piso: 3, abp: 65.39, abc: 80.02, preco: 585000, parking: true,  varanda: true,  reservada: true  },
   { id: "K", tipo: "T1 Tipo B", piso: 4, abp: 56.71, abc: 73.52, preco: 565000, parking: true,  varanda: true,  reservada: false },
   { id: "L", tipo: "T1 Tipo C", piso: 4, abp: 54.12, abc: 65.05, preco: 545000, parking: true,  varanda: false, reservada: false },
   { id: "M", tipo: "T1 Tipo D", piso: 4, abp: 65.39, abc: 80.09, preco: 590000, parking: true,  varanda: true,  reservada: false },
