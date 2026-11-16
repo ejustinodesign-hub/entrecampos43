@@ -206,7 +206,7 @@ export const pt: Translations = {
         descricao:
           "Apartamento T1 com distribuição eficiente. Ideal para investimento ou habitação própria.",
         area: "54 – 65 m²",
-        preco: "a partir de 530.000 €",
+        preco: "a partir de 507.500 €",
       },
       {
         tipo: "T1 — Tipo D",
@@ -386,7 +386,7 @@ export const en: Translations = {
         descricao:
           "Smaller T1 apartment with efficient layout. Ideal for investment or owner occupation.",
         area: "54 – 65 m²",
-        preco: "from €530,000",
+        preco: "from €507,500",
       },
       {
         tipo: "T1 — Type D",
